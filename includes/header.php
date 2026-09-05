@@ -13,6 +13,9 @@ $current = basename($_SERVER['SCRIPT_NAME']);
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/style.css">
+<link rel="icon" type="image/svg+xml" href="<?php echo BASE_URL; ?>assets/img/enwires-logo.svg">
+<link rel="alternate icon" href="<?php echo BASE_URL; ?>assets/img/logo.png">
+<link rel="apple-touch-icon" href="<?php echo BASE_URL; ?>assets/img/logo.png">
 </head>
 <body>
 

@@ -1,0 +1,2 @@
+primary : #FF1400
+Background : #444345

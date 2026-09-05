@@ -1,6 +1,7 @@
 <?php
 $pageTitle = 'Contact';
-$pageDescription = 'Get in touch with Enwires, Grenoble, France.';
+$pageDescription = 'Get in touch with Enwires in Grenoble, France, to discuss SiBoost for your battery anode material needs.';
+$pageKeywords = 'contact Enwires, Enwires Grenoble, battery materials contact, SiBoost inquiry, graphite silicon composite supplier';
 
 $formSubmitted = false;
 $formErrors = [];

@@ -1,6 +1,7 @@
 <?php
 $pageTitle = 'Home';
 $pageDescription = 'Enwires is a Grenoble-based materials company developing SiBoost, a silicon-graphite composite that increases the energy density of lithium-ion batteries.';
+$pageKeywords = 'Enwires, battery materials Grenoble, silicon graphite composite, SiBoost, lithium-ion battery anode, energy density battery material, graphite silicon anode France';
 require_once __DIR__ . '/includes/header.php';
 ?>
 

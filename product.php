@@ -1,6 +1,8 @@
 <?php
 $pageTitle = 'SiBoost';
 $pageDescription = 'SiBoost is a silicon-doped graphite composite that delivers 1.1 to 4 times the energy density of standard graphite in lithium-ion batteries.';
+$pageKeywords = 'SiBoost, silicon doped graphite, graphite silicon composite, Gr-Si anode material, lithium-ion battery energy density, silicon anode technology, battery anode manufacturer';
+$pageImage = 'assets/img/bottles.jpg';
 require_once __DIR__ . '/includes/header.php';
 ?>
 

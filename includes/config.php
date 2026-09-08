@@ -36,9 +36,9 @@ define('CURRENT_LANG', $lang);
 // og_locale = Open Graph locale format (used by Facebook/LinkedIn previews)
 $GLOBALS['LANGUAGES'] = [
     'en' => ['label' => 'EN',   'name' => 'English',  'prefix' => '',    'html_lang' => 'en',      'og_locale' => 'en_US'],
-    'fr' => ['label' => 'FR',   'name' => 'Français',  'prefix' => 'fr/', 'html_lang' => 'fr',      'og_locale' => 'fr_FR'],
     'zh' => ['label' => '中文', 'name' => '中文',       'prefix' => 'zh/', 'html_lang' => 'zh-Hans', 'og_locale' => 'zh_CN'],
     'ja' => ['label' => 'JA',   'name' => '日本語',      'prefix' => 'ja/', 'html_lang' => 'ja',      'og_locale' => 'ja_JP'],
+    'fr' => ['label' => 'FR',   'name' => 'Français',  'prefix' => 'fr/', 'html_lang' => 'fr',      'og_locale' => 'fr_FR'],
 ];
 
 // Root-absolute path prefix for internal page links in the current

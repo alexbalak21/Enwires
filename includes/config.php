@@ -20,7 +20,7 @@ define('DEFAULT_KEYWORDS', 'Enwires, SiBoost, silicon graphite composite, batter
 define('BASE_URL', '');
 
 $NAV_ITEMS = [
-    '/'   => 'Home',
+    '' => 'Home',
     'product.php' => 'Product',
     'contact.php' => 'Contact',
 ];

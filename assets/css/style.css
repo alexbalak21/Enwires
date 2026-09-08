@@ -15,8 +15,8 @@
   --line:      #5C5B5D;
   --line-on-paper: #D3CFC8;
 
-  --font-display: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
-  --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Space Grotesk", "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  --font-body: "Inter", "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
 
   --max: 1120px;
 }
@@ -84,6 +84,26 @@ p{ margin: 0 0 1em; max-width: 62ch; }
 .site-nav a:hover{ color: var(--ink); }
 .site-nav a.is-active{ color: var(--ink); border-color: var(--red); }
 
+.lang-switch{
+  display:flex; align-items:center; gap:10px;
+  margin-left: 8px; padding-left: 18px;
+  border-left: 1px solid var(--line);
+}
+.lang-switch a, .lang-switch-current{
+  font-family: var(--font-body);
+  font-size: .82rem;
+  text-decoration:none;
+}
+.lang-switch a{
+  color: var(--ink-dim);
+  transition: color .15s ease;
+}
+.lang-switch a:hover{ color: var(--ink); }
+.lang-switch-current{
+  color: var(--red);
+  font-weight: 600;
+}
+
 .nav-toggle{
   display:none; background:none; border:0; padding:8px; cursor:pointer;
   flex-direction:column; gap:5px;
@@ -99,9 +119,13 @@ p{ margin: 0 0 1em; max-width: 62ch; }
     border-bottom: 1px solid var(--line);
     max-height:0; overflow:hidden;
   }
-  .site-nav.is-open{ max-height:240px; }
+  .site-nav.is-open{ max-height:340px; }
   .site-nav a{ padding: 16px 24px; border-bottom:1px solid var(--line); border-left:2px solid transparent; }
   .site-nav a.is-active{ border-left-color: var(--red); border-bottom-color: var(--line); }
+  .lang-switch{
+    margin-left:0; padding: 14px 24px; border-left:0; border-top: 1px solid var(--line);
+    gap: 16px;
+  }
 }
 
 /* ==========================================================================

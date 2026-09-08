@@ -1,18 +1,20 @@
 <?php
-$pageTitle = 'SiBoost';
-$pageDescription = 'SiBoost is a silicon-doped graphite composite that delivers 1.1 to 4 times the energy density of standard graphite in lithium-ion batteries.';
-$pageKeywords = 'SiBoost, silicon doped graphite, graphite silicon composite, Gr-Si anode material, lithium-ion battery energy density, silicon anode technology, battery anode manufacturer';
+if (!isset($lang)) { $lang = 'en'; }
+require_once __DIR__ . '/includes/config.php';
+
+$pageTitle = t('product.meta.title');
+$pageDescription = t('product.meta.description');
+$pageKeywords = t('product.meta.keywords');
 $pageImage = 'assets/img/bottles.jpg';
 require_once __DIR__ . '/includes/header.php';
 ?>
 
 <section class="band band-charcoal" style="padding-top:64px;">
   <div class="wrap">
-    <p class="hero-eyebrow">Product</p>
+    <p class="hero-eyebrow"><?php echo t('product.hero.eyebrow'); ?></p>
     <h1 style="font-size:clamp(2rem,4.5vw,3.2rem); max-width:16ch;">SiBoost</h1>
     <p style="font-size:1.1rem; color:var(--ink-dim); max-width:56ch;">
-      A silicon-doped graphite designed to increase the energy density of
-      lithium-ion battery anodes, built to run on existing production lines.
+      <?php echo t('product.hero.text'); ?>
     </p>
   </div>
 </section>
@@ -20,65 +22,55 @@ require_once __DIR__ . '/includes/header.php';
 <div class="ribbon-divider" aria-hidden="true"></div>
 
 <section class="band band-paper">
-  <div class="wrap split">
+  <div class="wrap split reveal">
     <div class="stat">
-      <div class="num">1.1&ndash;4&times;</div>
-      <div class="label">energy density compared with the graphite currently
-        used in lithium-ion batteries</div>
+      <div class="num"><?php echo t('product.stat.number'); ?></div>
+      <div class="label"><?php echo t('product.stat.label'); ?></div>
     </div>
     <div>
-      <h2 style="font-size:1.5rem;">What is SiBoost?</h2>
-      <p>SiBoost is a graphite-silicon composite (Gr-Si) that pairs graphite's
-        electronic conductivity with silicon's ability to interact with and
-        store lithium ions.</p>
-      <p>That combination is what pushes the energy density beyond what
-        graphite alone can offer &mdash; anywhere from 1.1 to 4 times the
-        performance, depending on the formulation and the target application.</p>
+      <h2 style="font-size:1.5rem;"><?php echo t('product.what.heading'); ?></h2>
+      <p><?php echo t('product.what.p1'); ?></p>
+      <p><?php echo t('product.what.p2'); ?></p>
     </div>
   </div>
 </section>
 
 <section class="band band-bg">
-  <div class="wrap">
+  <div class="wrap reveal">
     <div class="section-head">
-      <h2>Before and after</h2>
-      <p>The same base graphite, before treatment and after silicon doping.</p>
+      <h2><?php echo t('product.compare.heading'); ?></h2>
+      <p><?php echo t('product.compare.text'); ?></p>
     </div>
     <div class="compare">
       <figure>
-        <img src="assets/img/bottles.jpg" alt="Two glass bottles side by side: raw graphite powder on the left, darker SiBoost silicon-doped powder on the right, both labelled Enwires">
-        <figcaption>Left: standard graphite. Right: SiBoost, silicon-doped graphite.</figcaption>
+        <img src="<?php echo ASSETS_URL; ?>assets/img/bottles.jpg" alt="<?php echo htmlspecialchars(t('product.compare.alt')); ?>">
+        <figcaption><?php echo t('product.compare.caption'); ?></figcaption>
       </figure>
     </div>
   </div>
 </section>
 
 <section class="band band-charcoal">
-  <div class="wrap split">
+  <div class="wrap split reveal">
     <div>
-      <h2 style="font-size:1.5rem;">How it works</h2>
+      <h2 style="font-size:1.5rem;"><?php echo t('product.how.heading'); ?></h2>
       <ul class="steps">
-        <li><strong>Start from standard graphite.</strong> Most grades used in the
-          industry today, including material that's currently under-used.</li>
-        <li><strong>Introduce silicon at the particle level.</strong> Silicon is
-          bonded into the graphite structure rather than simply blended in.</li>
-        <li><strong>Verify under electron microscopy.</strong> Every batch is
-          checked at the particle surface before it ships.</li>
+        <li><strong><?php echo t('product.how.step1.title'); ?></strong> <?php echo t('product.how.step1.text'); ?></li>
+        <li><strong><?php echo t('product.how.step2.title'); ?></strong> <?php echo t('product.how.step2.text'); ?></li>
+        <li><strong><?php echo t('product.how.step3.title'); ?></strong> <?php echo t('product.how.step3.text'); ?></li>
       </ul>
     </div>
     <div>
-      <img src="assets/img/graphite-particle.jpg" alt="SEM image of a single SiBoost particle" style="border:1px solid var(--line);">
+      <img src="<?php echo ASSETS_URL; ?>assets/img/graphite-particle.jpg" alt="<?php echo htmlspecialchars(t('product.how.image_alt')); ?>" style="border:1px solid var(--line);">
     </div>
   </div>
 </section>
 
 <section class="band band-bg">
-  <div class="wrap" style="text-align:left;">
-    <h2 style="font-size:1.6rem;">Bring your own graphite</h2>
-    <p style="color:var(--ink-dim);">Our production line adapts to most graphite
-      materials already used in the industry &mdash; tell us what you're working
-      with and we'll tell you what SiBoost can do with it.</p>
-    <a href="contact.php" class="btn btn-primary">Get in touch</a>
+  <div class="wrap reveal" style="text-align:left;">
+    <h2 style="font-size:1.6rem;"><?php echo t('product.cta.heading'); ?></h2>
+    <p style="color:var(--ink-dim);"><?php echo t('product.cta.text'); ?></p>
+    <a href="<?php echo PAGE_BASE; ?>contact.php" class="btn btn-primary"><?php echo t('product.cta.button'); ?></a>
   </div>
 </section>
 

@@ -1,19 +1,21 @@
 <?php
-$pageTitle = 'Home';
-$pageDescription = 'Enwires is a Grenoble-based materials company developing SiBoost, a silicon-graphite composite that increases the energy density of lithium-ion batteries.';
-$pageKeywords = 'Enwires, battery materials Grenoble, silicon graphite composite, SiBoost, lithium-ion battery anode, energy density battery material, graphite silicon anode France';
+if (!isset($lang)) { $lang = 'en'; }
+require_once __DIR__ . '/includes/config.php';
+
+$pageTitle = t('home.meta.title');
+$pageDescription = t('home.meta.description');
+$pageKeywords = t('home.meta.keywords');
 require_once __DIR__ . '/includes/header.php';
 ?>
 
 <section class="hero">
   <div class="wrap hero-inner">
-    <p class="hero-eyebrow">Battery materials, engineered in Grenoble</p>
-    <h1>More energy in your battery.</h1>
-    <p>Enwires builds silicon-graphite composites that raise the energy density of
-      lithium-ion batteries &mdash; without changing how they're manufactured.</p>
+    <p class="hero-eyebrow"><?php echo t('home.hero.eyebrow'); ?></p>
+    <h1><?php echo t('home.hero.headline'); ?></h1>
+    <p><?php echo t('home.hero.text'); ?></p>
     <div class="hero-cta">
-      <a href="product.php" class="btn btn-primary">See SiBoost</a>
-      <a href="contact.php" class="btn btn-ghost">Talk to us</a>
+      <a href="<?php echo PAGE_BASE; ?>product.php" class="btn btn-primary"><?php echo t('home.hero.cta_primary'); ?></a>
+      <a href="<?php echo PAGE_BASE; ?>contact.php" class="btn btn-ghost"><?php echo t('home.hero.cta_secondary'); ?></a>
     </div>
   </div>
 </section>
@@ -21,66 +23,56 @@ require_once __DIR__ . '/includes/header.php';
 <div class="ribbon-divider" aria-hidden="true"></div>
 
 <section class="band band-bg">
-  <div class="wrap split">
+  <div class="wrap split reveal">
     <div>
       <div class="section-head">
-        <h2>Who we are</h2>
+        <h2><?php echo t('home.who.heading'); ?></h2>
       </div>
-      <p>Enwires is a team of around ten people, working alongside experts from
-        the battery industry. We focus on one problem: how far a graphite-based
-        anode can be pushed before it needs to be replaced.</p>
-      <p>Lithium-ion batteries are one of the most widely used technologies of
-        modern life, and one of the most constrained. We build materials that
-        extend what's already in production, rather than asking manufacturers to
-        start over.</p>
+      <p><?php echo t('home.who.p1'); ?></p>
+      <p><?php echo t('home.who.p2'); ?></p>
     </div>
     <div class="stat">
-      <div class="num">1.1&ndash;4&times;</div>
-      <div class="label">the energy density of standard graphite, from our
-        SiBoost composite</div>
+      <div class="num"><?php echo t('home.who.stat_number'); ?></div>
+      <div class="label"><?php echo t('home.who.stat_label'); ?></div>
     </div>
   </div>
 </section>
 
 <section class="band band-charcoal">
-  <div class="wrap">
+  <div class="wrap reveal">
     <div class="section-head">
-      <h2>What we offer</h2>
+      <h2><?php echo t('home.offer.heading'); ?></h2>
     </div>
     <ul class="value-list">
       <li>
-        <h3>Higher energy density</h3>
-        <p>SiBoost combines graphite's conductivity with silicon's capacity to
-          store lithium, so cells can hold more energy at the same size.</p>
+        <h3><?php echo t('home.offer.item1.title'); ?></h3>
+        <p><?php echo t('home.offer.item1.text'); ?></p>
       </li>
       <li>
-        <h3>Drop-in compatibility</h3>
-        <p>Our process adapts to graphite grades already used across the industry,
-          including material that's currently under-used because of its
-          characteristics.</p>
+        <h3><?php echo t('home.offer.item2.title'); ?></h3>
+        <p><?php echo t('home.offer.item2.text'); ?></p>
       </li>
       <li>
-        <h3>Smaller or lighter cells</h3>
-        <p>The same performance in less volume and weight &mdash; or more
-          performance in the footprint manufacturers already have.</p>
+        <h3><?php echo t('home.offer.item3.title'); ?></h3>
+        <p><?php echo t('home.offer.item3.text'); ?></p>
       </li>
     </ul>
   </div>
 </section>
 
 <section class="band band-bg" style="padding-bottom:0;">
-  <div class="wrap">
+  <div class="wrap reveal">
     <div class="section-head">
-      <h2>From powder to particle</h2>
-      <p>Every batch is verified under electron microscopy before it leaves the lab.</p>
+      <h2><?php echo t('home.filmstrip.heading'); ?></h2>
+      <p><?php echo t('home.filmstrip.text'); ?></p>
     </div>
   </div>
   <div class="filmstrip">
-    <img src="assets/img/graphite-pouder.jpg" alt="Raw graphite powder, before treatment" loading="lazy">
-    <img src="assets/img/graphite-pouder-purifued.jpg" alt="Purified, silicon-doped graphite powder" loading="lazy">
-    <img src="assets/img/graphite-particle.jpg" alt="Single graphite particle under electron microscope" loading="lazy">
-    <img src="assets/img/micorscorpe-zoom.jpg" alt="Particle surface texture under microscope" loading="lazy">
-    <img src="assets/img/microscope-zoom-2.jpg" alt="Close-up of coated particle surface" loading="lazy">
+    <img src="<?php echo ASSETS_URL; ?>assets/img/graphite-pouder.jpg" alt="<?php echo htmlspecialchars(t('home.filmstrip.alt1')); ?>" loading="lazy">
+    <img src="<?php echo ASSETS_URL; ?>assets/img/graphite-pouder-purifued.jpg" alt="<?php echo htmlspecialchars(t('home.filmstrip.alt2')); ?>" loading="lazy">
+    <img src="<?php echo ASSETS_URL; ?>assets/img/graphite-particle.jpg" alt="<?php echo htmlspecialchars(t('home.filmstrip.alt3')); ?>" loading="lazy">
+    <img src="<?php echo ASSETS_URL; ?>assets/img/micorscorpe-zoom.jpg" alt="<?php echo htmlspecialchars(t('home.filmstrip.alt4')); ?>" loading="lazy">
+    <img src="<?php echo ASSETS_URL; ?>assets/img/microscope-zoom-2.jpg" alt="<?php echo htmlspecialchars(t('home.filmstrip.alt5')); ?>" loading="lazy">
   </div>
 </section>
 

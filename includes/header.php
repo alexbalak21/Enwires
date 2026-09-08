@@ -65,7 +65,7 @@ $ogImage      = rtrim(SITE_URL, '/') . '/' . (isset($pageImage) ? $pageImage : '
 
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="brand" href="<?php echo PAGE_BASE; ?>index.php">
+    <a class="brand" href="<?php echo PAGE_BASE; ?>">
       <img src="<?php echo ASSETS_URL; ?>assets/img/logo.png" alt="<?php echo htmlspecialchars(t('nav.logo_alt')); ?>" class="brand-mark">
       <span class="brand-text">
         <span class="brand-name">ENWIRES</span>
@@ -78,8 +78,9 @@ $ogImage      = rtrim(SITE_URL, '/') . '/' . (isset($pageImage) ? $pageImage : '
     </button>
 
     <nav class="site-nav" id="siteNav">
-      <?php foreach ($NAV_ITEMS as $href => $label): ?>
-        <a href="<?php echo PAGE_BASE . $href; ?>" class="<?php echo $current === $href ? 'is-active' : ''; ?>"><?php echo $label; ?></a>
+      <?php foreach ($NAV_ITEMS as $file => $label): ?>
+        <?php $navHref = ($file === 'index.php') ? PAGE_BASE : PAGE_BASE . $file; ?>
+        <a href="<?php echo $navHref; ?>" class="<?php echo $current === $file ? 'is-active' : ''; ?>"><?php echo $label; ?></a>
       <?php endforeach; ?>
 
       <span class="lang-switch">
@@ -87,7 +88,8 @@ $ogImage      = rtrim(SITE_URL, '/') . '/' . (isset($pageImage) ? $pageImage : '
           <?php if ($code === CURRENT_LANG): ?>
             <span class="lang-switch-current" aria-current="true"><?php echo $meta['label']; ?></span>
           <?php else: ?>
-            <a href="<?php echo '/' . $meta['prefix'] . $current; ?>" hreflang="<?php echo $meta['html_lang']; ?>" lang="<?php echo $meta['html_lang']; ?>"><?php echo $meta['label']; ?></a>
+            <?php $switchHref = ($current === 'index.php') ? '/' . $meta['prefix'] : '/' . $meta['prefix'] . $current; ?>
+            <a href="<?php echo $switchHref; ?>" hreflang="<?php echo $meta['html_lang']; ?>" lang="<?php echo $meta['html_lang']; ?>"><?php echo $meta['label']; ?></a>
           <?php endif; ?>
         <?php endforeach; ?>
       </span>

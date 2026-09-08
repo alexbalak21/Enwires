@@ -51,7 +51,7 @@ $ogImage         = rtrim(SITE_URL, '/') . '/' . (isset($pageImage) ? $pageImage 
 
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="brand" href="<?php echo BASE_URL; ?>index.php">
+    <a class="brand" href="<?php echo BASE_URL; ?>">
       <img src="<?php echo BASE_URL; ?>assets/img/logo.png" alt="Enwires logo" class="brand-mark">
       <span class="brand-text">
         <span class="brand-name">ENWIRES</span>

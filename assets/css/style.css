@@ -159,7 +159,7 @@ p {
 .lang-switch {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
   margin-left: 8px;
   padding-left: 18px;
   border-left: 1px solid var(--line);
@@ -172,16 +172,45 @@ p {
   text-decoration: none;
 }
 
+/* Animated hover/focus frame: a 1px border that draws in from a slightly
+   scaled-down state rather than just appearing, using an absolutely
+   positioned pseudo-element so it never shifts surrounding layout. */
 .lang-switch a {
+  position: relative;
   color: var(--ink-dim);
+  padding: 4px 8px;
+  border-radius: 2px;
   transition: color .15s ease;
 }
 
-.lang-switch a:hover {
+.lang-switch a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: 1px solid var(--red);
+  border-radius: 2px;
+  opacity: 0;
+  transform: scale(.82);
+  transition: opacity .25s ease, transform .3s cubic-bezier(.25, .8, .35, 1);
+  pointer-events: none;
+}
+
+.lang-switch a:hover,
+.lang-switch a:focus-visible {
   color: var(--ink);
 }
 
+.lang-switch a:hover::before,
+.lang-switch a:focus-visible::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
 .lang-switch-current {
+  padding: 4px 8px;
   color: var(--red);
   font-weight: 600;
 }

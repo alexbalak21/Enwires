@@ -2,6 +2,15 @@
 require_once __DIR__ . '/config.php';
 $current = basename($_SERVER['SCRIPT_NAME']);
 
+// Remember whatever language is actually being shown on this page — whether
+// that's from browser-language detection, a manual click on the language
+// switcher, or a direct/shared link to a specific language folder. This is
+// what includes/language-detect.php checks on a later visit to "/", so a
+// manual choice always wins over the original auto-detection.
+if (!headers_sent()) {
+    setcookie('enwires_lang', CURRENT_LANG, time() + 60 * 60 * 24 * 365, '/');
+}
+
 // Per-page SEO values, with sane fallbacks. Set $pageTitle / $pageDescription /
 // $pageKeywords / $pageImage before including this file to override.
 $metaDescription = isset($pageDescription) ? $pageDescription : DEFAULT_DESCRIPTION;
@@ -88,8 +97,8 @@ $ogImage      = rtrim(SITE_URL, '/') . '/' . (isset($pageImage) ? $pageImage : '
           <?php if ($code === CURRENT_LANG): ?>
             <span class="lang-switch-current" aria-current="true"><?php echo $meta['label']; ?></span>
           <?php else: ?>
-            <?php $switchHref = ($current === 'index.php') ? '/' . $meta['prefix'] : '/' . $meta['prefix'] . $current; ?>
-            <a href="<?php echo $switchHref; ?>" hreflang="<?php echo $meta['html_lang']; ?>" lang="<?php echo $meta['html_lang']; ?>"><?php echo $meta['label']; ?></a>
+            <?php $switchTo = ($current === 'index.php') ? '' : $current; ?>
+            <a href="/set-lang.php?lang=<?php echo urlencode($code); ?>&amp;to=<?php echo urlencode($switchTo); ?>" hreflang="<?php echo $meta['html_lang']; ?>" lang="<?php echo $meta['html_lang']; ?>"><?php echo $meta['label']; ?></a>
           <?php endif; ?>
         <?php endforeach; ?>
       </span>

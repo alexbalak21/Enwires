@@ -38,10 +38,15 @@ return [
     'home.filmstrip.heading' => '粉末から粒子へ',
     'home.filmstrip.text'    => 'すべてのバッチは、出荷前に電子顕微鏡による検証を受けています。',
     'home.filmstrip.alt1'    => '処理前の黒鉛粉末原料',
-    'home.filmstrip.alt2'    => '精製・シリコンドープ処理された黒鉛粉末',
+    'home.filmstrip.alt2'    => '未処理の黒鉛粉末とシリコンドープSiBoost粉末を並べた比較',
     'home.filmstrip.alt3'    => '電子顕微鏡で見た単一の黒鉛粒子',
     'home.filmstrip.alt4'    => '顕微鏡で見た粒子表面のテクスチャ',
     'home.filmstrip.alt5'    => 'コーティングされた粒子表面のクローズアップ',
+
+    'home.pilot.heading'  => 'パイロットスケールでの製造',
+    'home.pilot.text'     => 'SiBoostは実験室のガラス器具ではなく、実際の生産設備で製造されています——つまり試験で有効だったものが、そのまま出荷されます。',
+    'home.pilot.alt'      => '防護マスクを着用した技術者がステンレス製パイロットリアクターのバルブを調整している様子',
+    'home.pilot.caption'  => 'パイロットスケールのリアクター、稼働中。',
 
     // 製品ページ
     'product.meta.title'       => 'SiBoost',
@@ -71,6 +76,14 @@ return [
     'product.how.step3.title' => '電子顕微鏡で検証します。',
     'product.how.step3.text'  => 'すべてのバッチは、出荷前に粒子表面レベルで検査されます。',
     'product.how.image_alt'  => '単一のSiBoost粒子の電子顕微鏡画像',
+    'product.how.image2_alt' => '2種類のコーティング電極表面テクスチャのマクロ比較',
+
+    'product.cells.heading'  => '材料からセルへ',
+    'product.cells.text'     => 'SiBoostは粉末としての評価だけでなく、実際のコインセルに組み込んで、生産ラインと同じ方法で試験を行っています。',
+    'product.cells.alt1'     => 'コインセルの部品を並べたもの：ケース、電極ディスク、セパレーター、スプリング、スペーサー、キャップ',
+    'product.cells.alt2'     => '手袋をした手がピンセットでSiBoost電極ディスクをつまんでいる様子',
+    'product.cells.alt3'     => 'セルを密閉するため、圧着プレスにSiBoost電極ディスクを置いた様子',
+    'product.cells.alt4'     => '完成し圧着された2枚のSiBoost電極ペレットを並べたもの',
 
     'product.cta.heading' => 'お手持ちの黒鉛材料でもご相談ください',
     'product.cta.text'    => '当社の生産ラインは、業界で既に使用されているほとんどの黒鉛材料に対応可能です——現在お使いの材料をお聞かせいただければ、SiBoostで何が実現できるかをご案内します。',

@@ -61,12 +61,28 @@ require_once __DIR__ . '/includes/header.php';
       </ul>
     </div>
     <div>
-      <img src="<?php echo ASSETS_URL; ?>assets/img/graphite-particle.jpg" alt="<?php echo htmlspecialchars(t('product.how.image_alt')); ?>" style="border:1px solid var(--line);">
+      <img src="<?php echo ASSETS_URL; ?>assets/img/graphite-particle.jpg" alt="<?php echo htmlspecialchars(t('product.how.image_alt')); ?>" style="border:1px solid var(--line); margin-bottom:12px;">
+      <img src="<?php echo ASSETS_URL; ?>assets/img/electrode-coating-compare.jpg" alt="<?php echo htmlspecialchars(t('product.how.image2_alt')); ?>" style="border:1px solid var(--line);">
     </div>
   </div>
 </section>
 
 <section class="band band-bg">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <h2><?php echo t('product.cells.heading'); ?></h2>
+      <p><?php echo t('product.cells.text'); ?></p>
+    </div>
+  </div>
+  <div class="filmstrip">
+    <img src="<?php echo ASSETS_URL; ?>assets/img/coincell-components.jpg" alt="<?php echo htmlspecialchars(t('product.cells.alt1')); ?>" loading="lazy">
+    <img src="<?php echo ASSETS_URL; ?>assets/img/coincell-electrode-disc.jpg" alt="<?php echo htmlspecialchars(t('product.cells.alt2')); ?>" loading="lazy">
+    <img src="<?php echo ASSETS_URL; ?>assets/img/coincell-crimping.jpg" alt="<?php echo htmlspecialchars(t('product.cells.alt3')); ?>" loading="lazy">
+    <img src="<?php echo ASSETS_URL; ?>assets/img/coincell-pressed-pellets.jpg" alt="<?php echo htmlspecialchars(t('product.cells.alt4')); ?>" loading="lazy">
+  </div>
+</section>
+
+<section class="band band-charcoal">
   <div class="wrap reveal" style="text-align:left;">
     <h2 style="font-size:1.6rem;"><?php echo t('product.cta.heading'); ?></h2>
     <p style="color:var(--ink-dim);"><?php echo t('product.cta.text'); ?></p>

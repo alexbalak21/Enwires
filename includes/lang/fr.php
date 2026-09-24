@@ -38,10 +38,15 @@ return [
     'home.filmstrip.heading' => 'De la poudre à la particule',
     'home.filmstrip.text'    => 'Chaque lot est vérifié par microscopie électronique avant de quitter le laboratoire.',
     'home.filmstrip.alt1'    => 'Poudre de graphite brute, avant traitement',
-    'home.filmstrip.alt2'    => 'Poudre de graphite purifiée et dopée au silicium',
+    'home.filmstrip.alt2'    => 'Poudre de graphite brute à côté de la poudre SiBoost dopée au silicium',
     'home.filmstrip.alt3'    => 'Particule de graphite unique au microscope électronique',
     'home.filmstrip.alt4'    => "Texture de surface d'une particule au microscope",
     'home.filmstrip.alt5'    => "Gros plan sur la surface d'une particule enrobée",
+
+    'home.pilot.heading'  => 'Fabriqué à l\'échelle pilote',
+    'home.pilot.text'     => "SiBoost est produit sur un véritable équipement de production, pas en verrerie de laboratoire &mdash; ce qui fonctionne à l'essai est donc ce qui est expédié.",
+    'home.pilot.alt'      => 'Un technicien portant un masque respiratoire règle une vanne sur un réacteur pilote en acier inoxydable',
+    'home.pilot.caption'  => 'Réacteur à l\'échelle pilote, en cours de production.',
 
     // Page produit
     'product.meta.title'       => 'SiBoost',
@@ -71,6 +76,14 @@ return [
     'product.how.step3.title' => 'Vérifier par microscopie électronique.',
     'product.how.step3.text'  => "Chaque lot est contrôlé au niveau de la surface des particules avant expédition.",
     'product.how.image_alt'  => "Image MEB d'une particule unique de SiBoost",
+    'product.how.image2_alt' => 'Comparaison macro de deux textures de surface d\'électrode enrobée',
+
+    'product.cells.heading'  => 'De la matière à la cellule',
+    'product.cells.text'     => "SiBoost n'est pas seulement caractérisé sous forme de poudre &mdash; il est intégré dans de véritables cellules bouton et testé, comme il le serait sur une ligne de production.",
+    'product.cells.alt1'     => "Composants d'une cellule bouton disposés en rangée : boîtier, disques d'électrode, séparateur, ressort, entretoise et capuchon",
+    'product.cells.alt2'     => 'Une main gantée tient un disque d\'électrode SiBoost avec une pince',
+    'product.cells.alt3'     => 'Un disque d\'électrode SiBoost positionné sur une presse à sertir pour sceller la cellule',
+    'product.cells.alt4'     => 'Deux pastilles d\'électrode SiBoost finies, pressées, côte à côte',
 
     'product.cta.heading' => 'Apportez votre propre graphite',
     'product.cta.text'    => "Notre ligne de production s'adapte à la plupart des graphites déjà utilisés dans l'industrie &mdash; dites-nous avec quoi vous travaillez et nous vous dirons ce que SiBoost peut en faire.",

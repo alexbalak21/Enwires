@@ -65,6 +65,21 @@ require_once __DIR__ . '/includes/header.php';
   </div>
 </section>
 
+<section class="band band-charcoal">
+  <div class="wrap split reveal">
+    <div>
+      <div class="section-head">
+        <h2><?php echo t('home.pilot.heading'); ?></h2>
+      </div>
+      <p><?php echo t('home.pilot.text'); ?></p>
+    </div>
+    <figure style="margin:0;">
+      <img src="<?php echo ASSETS_URL; ?>assets/img/pilot-reactor-technician.jpg" alt="<?php echo htmlspecialchars(t('home.pilot.alt')); ?>" style="width:100%; height:auto; border:1px solid var(--line);" loading="lazy">
+      <figcaption style="margin-top:14px; color:var(--ink-dim); font-size:.92rem;"><?php echo t('home.pilot.caption'); ?></figcaption>
+    </figure>
+  </div>
+</section>
+
 <section class="band band-bg" style="padding-bottom:0;">
   <div class="wrap reveal">
     <div class="section-head">
@@ -73,8 +88,8 @@ require_once __DIR__ . '/includes/header.php';
     </div>
   </div>
   <div class="filmstrip">
-    <img src="<?php echo ASSETS_URL; ?>assets/img/graphite-pouder.jpg" alt="<?php echo htmlspecialchars(t('home.filmstrip.alt1')); ?>" loading="lazy">
-    <img src="<?php echo ASSETS_URL; ?>assets/img/graphite-pouder-purifued.jpg" alt="<?php echo htmlspecialchars(t('home.filmstrip.alt2')); ?>" loading="lazy">
+    <img src="<?php echo ASSETS_URL; ?>assets/img/graphite-powder-macro.jpg" alt="<?php echo htmlspecialchars(t('home.filmstrip.alt1')); ?>" loading="lazy">
+    <img src="<?php echo ASSETS_URL; ?>assets/img/powder-comparison-macro.jpg" alt="<?php echo htmlspecialchars(t('home.filmstrip.alt2')); ?>" loading="lazy">
     <img src="<?php echo ASSETS_URL; ?>assets/img/graphite-particle.jpg" alt="<?php echo htmlspecialchars(t('home.filmstrip.alt3')); ?>" loading="lazy">
     <img src="<?php echo ASSETS_URL; ?>assets/img/micorscorpe-zoom.jpg" alt="<?php echo htmlspecialchars(t('home.filmstrip.alt4')); ?>" loading="lazy">
     <img src="<?php echo ASSETS_URL; ?>assets/img/microscope-zoom-2.jpg" alt="<?php echo htmlspecialchars(t('home.filmstrip.alt5')); ?>" loading="lazy">

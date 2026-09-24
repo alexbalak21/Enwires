@@ -38,10 +38,15 @@ return [
     'home.filmstrip.heading' => '从粉末到颗粒',
     'home.filmstrip.text'    => '每一批材料在出厂前都经过电子显微镜的严格检测。',
     'home.filmstrip.alt1'    => '处理前的原始石墨粉末',
-    'home.filmstrip.alt2'    => '经提纯并掺硅处理的石墨粉末',
+    'home.filmstrip.alt2'    => '原始石墨粉末与硅掺杂 SiBoost 粉末并排对比',
     'home.filmstrip.alt3'    => '电子显微镜下的单个石墨颗粒',
     'home.filmstrip.alt4'    => '显微镜下的颗粒表面纹理',
     'home.filmstrip.alt5'    => '涂层颗粒表面的近距离特写',
+
+    'home.pilot.heading'  => '中试规模生产',
+    'home.pilot.text'     => 'SiBoost 在真正的生产设备上制造，而非实验室玻璃器皿中——这意味着测试中验证有效的，就是最终交付的。',
+    'home.pilot.alt'      => '佩戴防护面罩的技术人员正在调节不锈钢中试反应釜上的阀门',
+    'home.pilot.caption'  => '中试规模反应釜，生产运行中。',
 
     // 产品页
     'product.meta.title'       => 'SiBoost',
@@ -71,6 +76,14 @@ return [
     'product.how.step3.title' => '通过电子显微镜验证。',
     'product.how.step3.text'  => '每一批材料在出厂前都会在颗粒表面层面接受检测。',
     'product.how.image_alt'  => '单个 SiBoost 颗粒的电子显微镜图像',
+    'product.how.image2_alt' => '两种涂层电极表面纹理的宏观对比',
+
+    'product.cells.heading'  => '从材料到电芯',
+    'product.cells.text'     => 'SiBoost 不仅以粉末形式进行表征——我们还将其制成真实的纽扣电池并加以测试，与生产线上的流程完全一致。',
+    'product.cells.alt1'     => '纽扣电池组件依次排列：电池壳、电极片、隔膜、弹簧片、垫片与顶盖',
+    'product.cells.alt2'     => '戴手套的手用镊子夹起一片 SiBoost 电极片',
+    'product.cells.alt3'     => 'SiBoost 电极片放置在封口压机上，准备密封电池',
+    'product.cells.alt4'     => '两片压制完成的 SiBoost 电极片并排放置',
 
     'product.cta.heading' => '使用您自己的石墨原料',
     'product.cta.text'    => '我们的产线可适配行业内大多数现有石墨材料——告诉我们您正在使用的原料，我们将说明 SiBoost 能为它带来怎样的提升。',

@@ -40,10 +40,15 @@ return [
     'home.filmstrip.heading' => 'From powder to particle',
     'home.filmstrip.text'    => 'Every batch is verified under electron microscopy before it leaves the lab.',
     'home.filmstrip.alt1'    => 'Raw graphite powder, before treatment',
-    'home.filmstrip.alt2'    => 'Purified, silicon-doped graphite powder',
+    'home.filmstrip.alt2'    => 'Raw graphite powder next to silicon-doped SiBoost powder, side by side',
     'home.filmstrip.alt3'    => 'Single graphite particle under electron microscope',
     'home.filmstrip.alt4'    => 'Particle surface texture under microscope',
     'home.filmstrip.alt5'    => 'Close-up of coated particle surface',
+
+    'home.pilot.heading'  => 'Built at pilot scale',
+    'home.pilot.text'     => 'SiBoost is produced on real production equipment, not lab glassware &mdash; so what works in testing is what ships.',
+    'home.pilot.alt'      => 'A technician in a respirator mask adjusts a valve on a stainless steel pilot reactor',
+    'home.pilot.caption'  => 'Pilot-scale reactor, mid-run.',
 
     // Product page
     'product.meta.title'       => 'SiBoost',
@@ -73,6 +78,14 @@ return [
     'product.how.step3.title' => 'Verify under electron microscopy.',
     'product.how.step3.text'  => 'Every batch is checked at the particle surface before it ships.',
     'product.how.image_alt'  => 'SEM image of a single SiBoost particle',
+    'product.how.image2_alt' => 'Macro comparison of two coated electrode surface textures',
+
+    'product.cells.heading'  => 'From material to cell',
+    'product.cells.text'     => "SiBoost isn't just characterized as a powder &mdash; it's built into real coin cells and tested, the same way it would be in a production line.",
+    'product.cells.alt1'     => 'Coin cell components laid out in a row: case, electrode discs, separator, spring, spacer and cap',
+    'product.cells.alt2'     => 'A gloved hand holds a SiBoost electrode disc with tweezers',
+    'product.cells.alt3'     => 'A SiBoost electrode disc positioned on a crimping press to seal the cell',
+    'product.cells.alt4'     => 'Two finished, pressed SiBoost electrode pellets side by side',
 
     'product.cta.heading' => 'Bring your own graphite',
     'product.cta.text'    => "Our production line adapts to most graphite materials already used in the industry &mdash; tell us what you're working with and we'll tell you what SiBoost can do with it.",

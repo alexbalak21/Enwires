@@ -44,10 +44,13 @@ return [
     'home.filmstrip.alt3'    => 'Single graphite particle under electron microscope',
     'home.filmstrip.alt4'    => 'Particle surface texture under microscope',
     'home.filmstrip.alt5'    => 'Close-up of coated particle surface',
+    'home.filmstrip.alt6'    => 'A row of small sample trays holding different powder formulations, from dark raw material to fine light powders',
 
     'home.pilot.heading'  => 'Built at pilot scale',
     'home.pilot.text'     => 'SiBoost is produced on real production equipment, not lab glassware &mdash; so what works in testing is what ships.',
     'home.pilot.alt'      => 'A technician in a respirator mask adjusts a valve on a stainless steel pilot reactor',
+    'home.pilot.alt2'     => 'Close-up of gloved hands adjusting a fitting on the pilot reactor, lit in purple',
+    'home.pilot.alt3'     => 'A scoop of graphite powder being measured and added into a mixing vessel',
     'home.pilot.caption'  => 'Pilot-scale reactor, mid-run.',
 
     // Product page

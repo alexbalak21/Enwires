@@ -42,10 +42,13 @@ return [
     'home.filmstrip.alt3'    => '电子显微镜下的单个石墨颗粒',
     'home.filmstrip.alt4'    => '显微镜下的颗粒表面纹理',
     'home.filmstrip.alt5'    => '涂层颗粒表面的近距离特写',
+    'home.filmstrip.alt6'    => '一排装有不同粉末配方的样品盘，从深色原料到细腻的浅色粉末',
 
     'home.pilot.heading'  => '中试规模生产',
     'home.pilot.text'     => 'SiBoost 在真正的生产设备上制造，而非实验室玻璃器皿中——这意味着测试中验证有效的，就是最终交付的。',
     'home.pilot.alt'      => '佩戴防护面罩的技术人员正在调节不锈钢中试反应釜上的阀门',
+    'home.pilot.alt2'     => '紫色灯光下，戴手套的双手正在调节中试反应釜上的接头，特写镜头',
+    'home.pilot.alt3'     => '一勺石墨粉末被精确称量后加入混合容器中',
     'home.pilot.caption'  => '中试规模反应釜，生产运行中。',
 
     // 产品页

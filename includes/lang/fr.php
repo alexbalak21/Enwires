@@ -42,10 +42,13 @@ return [
     'home.filmstrip.alt3'    => 'Particule de graphite unique au microscope électronique',
     'home.filmstrip.alt4'    => "Texture de surface d'une particule au microscope",
     'home.filmstrip.alt5'    => "Gros plan sur la surface d'une particule enrobée",
+    'home.filmstrip.alt6'    => "Une série de petits plateaux d'échantillons contenant différentes formulations de poudre, de la matière brute foncée aux poudres claires fines",
 
     'home.pilot.heading'  => 'Fabriqué à l\'échelle pilote',
     'home.pilot.text'     => "SiBoost est produit sur un véritable équipement de production, pas en verrerie de laboratoire &mdash; ce qui fonctionne à l'essai est donc ce qui est expédié.",
     'home.pilot.alt'      => 'Un technicien portant un masque respiratoire règle une vanne sur un réacteur pilote en acier inoxydable',
+    'home.pilot.alt2'     => 'Gros plan sur des mains gantées réglant un raccord du réacteur pilote, sous un éclairage violet',
+    'home.pilot.alt3'     => 'Une dose de poudre de graphite mesurée puis versée dans une cuve de mélange',
     'home.pilot.caption'  => 'Réacteur à l\'échelle pilote, en cours de production.',
 
     // Page produit

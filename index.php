@@ -65,22 +65,21 @@ require_once __DIR__ . '/includes/header.php';
   </div>
 </section>
 
-<section class="band band-charcoal">
-  <div class="wrap split reveal">
-    <div>
-      <div class="section-head">
-        <h2><?php echo t('home.pilot.heading'); ?></h2>
-      </div>
+<section class="band band-bg">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <h2><?php echo t('home.pilot.heading'); ?></h2>
       <p><?php echo t('home.pilot.text'); ?></p>
     </div>
-    <figure style="margin:0;">
-      <img src="<?php echo ASSETS_URL; ?>assets/img/pilot-reactor-technician.jpg" alt="<?php echo htmlspecialchars(t('home.pilot.alt')); ?>" style="width:100%; height:auto; border:1px solid var(--line);" loading="lazy">
-      <figcaption style="margin-top:14px; color:var(--ink-dim); font-size:.92rem;"><?php echo t('home.pilot.caption'); ?></figcaption>
-    </figure>
+  </div>
+  <div class="filmstrip">
+    <img src="<?php echo ASSETS_URL; ?>assets/img/pilot-reactor-technician.jpg" alt="<?php echo htmlspecialchars(t('home.pilot.alt')); ?>" loading="lazy">
+    <img src="<?php echo ASSETS_URL; ?>assets/img/pilot-reactor-technician-zoom-on-hands.jpg" alt="<?php echo htmlspecialchars(t('home.pilot.alt2')); ?>" loading="lazy">
+    <img src="<?php echo ASSETS_URL; ?>assets/img/putting-graphite-powder-macro.jpg" alt="<?php echo htmlspecialchars(t('home.pilot.alt3')); ?>" loading="lazy">
   </div>
 </section>
 
-<section class="band band-bg" style="padding-bottom:0;">
+<section class="band band-charcoal" style="padding-bottom:0;">
   <div class="wrap reveal">
     <div class="section-head">
       <h2><?php echo t('home.filmstrip.heading'); ?></h2>
@@ -93,6 +92,7 @@ require_once __DIR__ . '/includes/header.php';
     <img src="<?php echo ASSETS_URL; ?>assets/img/graphite-particle.jpg" alt="<?php echo htmlspecialchars(t('home.filmstrip.alt3')); ?>" loading="lazy">
     <img src="<?php echo ASSETS_URL; ?>assets/img/micorscorpe-zoom.jpg" alt="<?php echo htmlspecialchars(t('home.filmstrip.alt4')); ?>" loading="lazy">
     <img src="<?php echo ASSETS_URL; ?>assets/img/microscope-zoom-2.jpg" alt="<?php echo htmlspecialchars(t('home.filmstrip.alt5')); ?>" loading="lazy">
+    <img src="<?php echo ASSETS_URL; ?>assets/img/powder-samples-wood-containers.jpg" alt="<?php echo htmlspecialchars(t('home.filmstrip.alt6')); ?>" loading="lazy">
   </div>
 </section>
 

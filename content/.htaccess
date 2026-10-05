@@ -1,0 +1,6 @@
+# content/*.json is read server-side by includes/i18n.php only — it should
+# never be reachable directly over HTTP.
+Require all denied
+# Apache 2.2 fallback
+Order deny,allow
+Deny from all

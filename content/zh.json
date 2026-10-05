@@ -1,0 +1,210 @@
+{
+    "home": {
+        "offer": {
+            "items": [
+                {
+                    "title": "更高的能量密度",
+                    "text": "SiBoost 将石墨的导电性与硅储锂的能力相结合，使电芯在相同体积下能够存储更多能量。"
+                },
+                {
+                    "title": "即插即用的兼容性",
+                    "text": "我们的工艺可适配行业内已广泛使用的多种石墨牌号，包括当前因特性受限而未被充分利用的材料。"
+                },
+                {
+                    "title": "更小或更轻的电芯",
+                    "text": "在更小的体积和更轻的重量下实现同等性能——或在制造商现有的空间内实现更高性能。"
+                }
+            ],
+            "heading": "我们提供什么"
+        },
+        "filmstrip": {
+            "images": [
+                {
+                    "src": "graphite-powder-macro.jpg",
+                    "alt": "处理前的原始石墨粉末"
+                },
+                {
+                    "src": "powder-comparison-macro.jpg",
+                    "alt": "原始石墨粉末与硅掺杂 SiBoost 粉末并排对比"
+                },
+                {
+                    "src": "graphite-particle.jpg",
+                    "alt": "电子显微镜下的单个石墨颗粒"
+                },
+                {
+                    "src": "micorscorpe-zoom.jpg",
+                    "alt": "显微镜下的颗粒表面纹理"
+                },
+                {
+                    "src": "microscope-zoom-2.jpg",
+                    "alt": "涂层颗粒表面的近距离特写"
+                },
+                {
+                    "src": "powder-samples-wood-containers.jpg",
+                    "alt": "一排装有不同粉末配方的样品盘，从深色原料到细腻的浅色粉末"
+                }
+            ],
+            "heading": "从粉末到颗粒",
+            "text": "每一批材料在出厂前都经过电子显微镜的严格检测。"
+        },
+        "pilot": {
+            "images": [
+                {
+                    "src": "pilot-reactor-technician.jpg",
+                    "alt": "佩戴防护面罩的技术人员正在调节不锈钢中试反应釜上的阀门"
+                },
+                {
+                    "src": "pilot-reactor-technician-zoom-on-hands.jpg",
+                    "alt": "紫色灯光下，戴手套的双手正在调节中试反应釜上的接头，特写镜头"
+                },
+                {
+                    "src": "putting-graphite-powder-macro.jpg",
+                    "alt": "一勺石墨粉末被精确称量后加入混合容器中"
+                }
+            ],
+            "heading": "中试规模生产",
+            "text": "SiBoost 在真正的生产设备上制造，而非实验室玻璃器皿中——这意味着测试中验证有效的，就是最终交付的。"
+        },
+        "meta": {
+            "title": "首页",
+            "description": "Enwires 是一家总部位于法国格勒诺布尔的材料公司，致力于研发 SiBoost——一种能够提升锂离子电池能量密度的硅碳复合材料。",
+            "keywords": "Enwires, 格勒诺布尔电池材料, 硅碳复合材料, SiBoost, 锂离子电池负极, 电池材料能量密度, 硅碳负极 法国"
+        },
+        "hero": {
+            "eyebrow": "电池材料，源自格勒诺布尔",
+            "headline": "为您的电池注入更多能量。",
+            "text": "Enwires 研发硅碳复合材料，在不改变现有生产工艺的前提下，提升锂离子电池的能量密度。",
+            "cta_primary": "了解 SiBoost",
+            "cta_secondary": "联系我们"
+        },
+        "who": {
+            "heading": "关于我们",
+            "p1": "Enwires 是一支约十人的团队，并有来自电池行业的多位专家提供支持。我们专注于一个核心问题：石墨基负极材料的性能极限究竟在哪里，才需要被替代。",
+            "p2": "锂离子电池是现代生活中应用最广泛的技术之一，也是限制最多的技术之一。我们致力于开发能够延长现有量产材料使用寿命的新材料，而不是要求制造商从头再来。",
+            "stat_number": "1.1&ndash;4&times;",
+            "stat_label": "采用 SiBoost 复合材料后，能量密度可达标准石墨的 1.1 至 4 倍"
+        }
+    },
+    "product": {
+        "how": {
+            "steps": [
+                {
+                    "title": "从标准石墨出发。",
+                    "text": "涵盖当今行业中使用的大多数牌号，包括目前尚未被充分利用的材料。"
+                },
+                {
+                    "title": "在颗粒层面引入硅。",
+                    "text": "硅被结合进石墨结构内部，而非简单地混合。"
+                },
+                {
+                    "title": "通过电子显微镜验证。",
+                    "text": "每一批材料在出厂前都会在颗粒表面层面接受检测。"
+                }
+            ],
+            "images": [
+                {
+                    "src": "graphite-particle.jpg",
+                    "alt": "单个 SiBoost 颗粒的电子显微镜图像"
+                },
+                {
+                    "src": "electrode-coating-compare.jpg",
+                    "alt": "两种涂层电极表面纹理的宏观对比"
+                }
+            ],
+            "heading": "工作原理"
+        },
+        "cells": {
+            "images": [
+                {
+                    "src": "coincell-components.jpg",
+                    "alt": "纽扣电池组件依次排列：电池壳、电极片、隔膜、弹簧片、垫片与顶盖"
+                },
+                {
+                    "src": "coincell-electrode-disc.jpg",
+                    "alt": "戴手套的手用镊子夹起一片 SiBoost 电极片"
+                },
+                {
+                    "src": "coincell-crimping.jpg",
+                    "alt": "SiBoost 电极片放置在封口压机上，准备密封电池"
+                },
+                {
+                    "src": "coincell-pressed-pellets.jpg",
+                    "alt": "两片压制完成的 SiBoost 电极片并排放置"
+                }
+            ],
+            "heading": "从材料到电芯",
+            "text": "SiBoost 不仅以粉末形式进行表征——我们还将其制成真实的纽扣电池并加以测试，与生产线上的流程完全一致。"
+        },
+        "compare": {
+            "image": {
+                "src": "bottles.jpg",
+                "alt": "两个玻璃瓶并排放置：左侧为原始石墨粉末，右侧为颜色更深的 SiBoost 掺硅粉末，均贴有 Enwires 标签",
+                "caption": "左：标准石墨。右：SiBoost 硅掺杂石墨。"
+            },
+            "heading": "处理前后对比",
+            "text": "同一种基础石墨，处理前与掺硅处理后的对比。"
+        },
+        "meta": {
+            "title": "SiBoost",
+            "description": "SiBoost 是一种硅掺杂石墨复合材料，能够为锂离子电池带来相当于标准石墨 1.1 至 4 倍的能量密度。",
+            "keywords": "SiBoost, 硅掺杂石墨, 硅碳复合材料, Gr-Si 负极材料, 锂离子电池能量密度, 硅负极技术, 电池负极材料制造商"
+        },
+        "hero": {
+            "eyebrow": "产品",
+            "text": "一种专为提升锂离子电池负极能量密度而设计的硅掺杂石墨材料，可直接应用于现有生产线。"
+        },
+        "stat": {
+            "number": "1.1&ndash;4&times;",
+            "label": "相比目前锂离子电池中使用的石墨，能量密度提升的倍数"
+        },
+        "what": {
+            "heading": "什么是 SiBoost？",
+            "p1": "SiBoost 是一种石墨-硅复合材料（Gr-Si），将石墨的电子导电性与硅储存、传导锂离子的能力结合在一起。",
+            "p2": "正是这种结合，使能量密度得以突破纯石墨材料的极限——根据配方及应用场景的不同，性能可提升 1.1 至 4 倍。"
+        },
+        "cta": {
+            "heading": "使用您自己的石墨原料",
+            "text": "我们的产线可适配行业内大多数现有石墨材料——告诉我们您正在使用的原料，我们将说明 SiBoost 能为它带来怎样的提升。",
+            "button": "联系我们"
+        }
+    },
+    "nav": {
+        "home": "首页",
+        "product": "产品",
+        "contact": "联系我们",
+        "logo_alt": "Enwires 标志",
+        "toggle_aria": "切换导航菜单"
+    },
+    "site": {
+        "tagline": "为电池注入更多能量"
+    },
+    "contact": {
+        "meta": {
+            "title": "联系我们",
+            "description": "联系位于法国格勒诺布尔的 Enwires，探讨 SiBoost 及您在电池负极材料方面的需求。",
+            "keywords": "联系 Enwires, Enwires 格勒诺布尔, 电池材料咨询, SiBoost 咨询, 硅碳复合材料供应商"
+        },
+        "hero": {
+            "eyebrow": "联系我们",
+            "title": "聊聊您的石墨材料。",
+            "text": "无论您是在为新的电芯设计评估 SiBoost，还是有意向我们提供某种石墨牌号，欢迎给我们留言，我们会尽快与您联系。"
+        },
+        "form": {
+            "name_label": "姓名 *",
+            "phone_label": "电话号码",
+            "email_label": "邮箱 *",
+            "subject_label": "主题",
+            "message_label": "留言 *",
+            "required_note": "* 为必填项",
+            "submit": "发送留言",
+            "error_name": "请输入您的姓名。",
+            "error_email": "请输入有效的邮箱地址。",
+            "error_message": "请输入留言内容。",
+            "success": "感谢您的留言，我们已收到，将尽快与您联系。"
+        },
+        "info": {
+            "location_label": "地址",
+            "email_label": "邮箱"
+        }
+    }
+}

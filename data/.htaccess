@@ -1,0 +1,4 @@
+# Admin credentials and content backups — never serve this folder directly.
+Require all denied
+Order deny,allow
+Deny from all

@@ -49,18 +49,12 @@ require_once __DIR__ . '/includes/header.php';
       <h2><?php echo t('home.offer.heading'); ?></h2>
     </div>
     <ul class="value-list">
+      <?php foreach (t_list('home.offer.items') as $item): ?>
       <li>
-        <h3><?php echo t('home.offer.item1.title'); ?></h3>
-        <p><?php echo t('home.offer.item1.text'); ?></p>
+        <h3><?php echo htmlspecialchars($item['title'] ?? ''); ?></h3>
+        <p><?php echo htmlspecialchars($item['text'] ?? ''); ?></p>
       </li>
-      <li>
-        <h3><?php echo t('home.offer.item2.title'); ?></h3>
-        <p><?php echo t('home.offer.item2.text'); ?></p>
-      </li>
-      <li>
-        <h3><?php echo t('home.offer.item3.title'); ?></h3>
-        <p><?php echo t('home.offer.item3.text'); ?></p>
-      </li>
+      <?php endforeach; ?>
     </ul>
   </div>
 </section>
@@ -73,9 +67,9 @@ require_once __DIR__ . '/includes/header.php';
     </div>
   </div>
   <div class="filmstrip">
-    <img src="<?php echo ASSETS_URL; ?>assets/img/pilot-reactor-technician.jpg" alt="<?php echo htmlspecialchars(t('home.pilot.alt')); ?>" loading="lazy">
-    <img src="<?php echo ASSETS_URL; ?>assets/img/pilot-reactor-technician-zoom-on-hands.jpg" alt="<?php echo htmlspecialchars(t('home.pilot.alt2')); ?>" loading="lazy">
-    <img src="<?php echo ASSETS_URL; ?>assets/img/putting-graphite-powder-macro.jpg" alt="<?php echo htmlspecialchars(t('home.pilot.alt3')); ?>" loading="lazy">
+    <?php foreach (t_list('home.pilot.images') as $img): ?>
+    <img src="<?php echo ASSETS_URL . 'assets/img/' . htmlspecialchars($img['src'] ?? ''); ?>" alt="<?php echo htmlspecialchars($img['alt'] ?? ''); ?>" loading="lazy">
+    <?php endforeach; ?>
   </div>
 </section>
 
@@ -87,12 +81,9 @@ require_once __DIR__ . '/includes/header.php';
     </div>
   </div>
   <div class="filmstrip">
-    <img src="<?php echo ASSETS_URL; ?>assets/img/graphite-powder-macro.jpg" alt="<?php echo htmlspecialchars(t('home.filmstrip.alt1')); ?>" loading="lazy">
-    <img src="<?php echo ASSETS_URL; ?>assets/img/powder-comparison-macro.jpg" alt="<?php echo htmlspecialchars(t('home.filmstrip.alt2')); ?>" loading="lazy">
-    <img src="<?php echo ASSETS_URL; ?>assets/img/graphite-particle.jpg" alt="<?php echo htmlspecialchars(t('home.filmstrip.alt3')); ?>" loading="lazy">
-    <img src="<?php echo ASSETS_URL; ?>assets/img/micorscorpe-zoom.jpg" alt="<?php echo htmlspecialchars(t('home.filmstrip.alt4')); ?>" loading="lazy">
-    <img src="<?php echo ASSETS_URL; ?>assets/img/microscope-zoom-2.jpg" alt="<?php echo htmlspecialchars(t('home.filmstrip.alt5')); ?>" loading="lazy">
-    <img src="<?php echo ASSETS_URL; ?>assets/img/powder-samples-wood-containers.jpg" alt="<?php echo htmlspecialchars(t('home.filmstrip.alt6')); ?>" loading="lazy">
+    <?php foreach (t_list('home.filmstrip.images') as $img): ?>
+    <img src="<?php echo ASSETS_URL . 'assets/img/' . htmlspecialchars($img['src'] ?? ''); ?>" alt="<?php echo htmlspecialchars($img['alt'] ?? ''); ?>" loading="lazy">
+    <?php endforeach; ?>
   </div>
 </section>
 

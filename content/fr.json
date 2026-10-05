@@ -1,0 +1,210 @@
+{
+    "home": {
+        "offer": {
+            "items": [
+                {
+                    "title": "Une densité énergétique plus élevée",
+                    "text": "SiBoost associe la conductivité du graphite à la capacité du silicium à stocker le lithium, permettant aux cellules de contenir plus d'énergie à taille égale."
+                },
+                {
+                    "title": "Une compatibilité directe",
+                    "text": "Notre procédé s'adapte aux qualités de graphite déjà utilisées dans l'industrie, y compris des matériaux aujourd'hui sous-exploités en raison de leurs caractéristiques."
+                },
+                {
+                    "title": "Des cellules plus petites ou plus légères",
+                    "text": "La même performance dans un volume et un poids réduits &mdash; ou plus de performance dans l'encombrement déjà utilisé par les fabricants."
+                }
+            ],
+            "heading": "Ce que nous proposons"
+        },
+        "filmstrip": {
+            "images": [
+                {
+                    "src": "graphite-powder-macro.jpg",
+                    "alt": "Poudre de graphite brute, avant traitement"
+                },
+                {
+                    "src": "powder-comparison-macro.jpg",
+                    "alt": "Poudre de graphite brute à côté de la poudre SiBoost dopée au silicium"
+                },
+                {
+                    "src": "graphite-particle.jpg",
+                    "alt": "Particule de graphite unique au microscope électronique"
+                },
+                {
+                    "src": "micorscorpe-zoom.jpg",
+                    "alt": "Texture de surface d'une particule au microscope"
+                },
+                {
+                    "src": "microscope-zoom-2.jpg",
+                    "alt": "Gros plan sur la surface d'une particule enrobée"
+                },
+                {
+                    "src": "powder-samples-wood-containers.jpg",
+                    "alt": "Une série de petits plateaux d'échantillons contenant différentes formulations de poudre, de la matière brute foncée aux poudres claires fines"
+                }
+            ],
+            "heading": "De la poudre à la particule",
+            "text": "Chaque lot est vérifié par microscopie électronique avant de quitter le laboratoire."
+        },
+        "pilot": {
+            "images": [
+                {
+                    "src": "pilot-reactor-technician.jpg",
+                    "alt": "Un technicien portant un masque respiratoire règle une vanne sur un réacteur pilote en acier inoxydable"
+                },
+                {
+                    "src": "pilot-reactor-technician-zoom-on-hands.jpg",
+                    "alt": "Gros plan sur des mains gantées réglant un raccord du réacteur pilote, sous un éclairage violet"
+                },
+                {
+                    "src": "putting-graphite-powder-macro.jpg",
+                    "alt": "Une dose de poudre de graphite mesurée puis versée dans une cuve de mélange"
+                }
+            ],
+            "heading": "Fabriqué à l'échelle pilote",
+            "text": "SiBoost est produit sur un véritable équipement de production, pas en verrerie de laboratoire &mdash; ce qui fonctionne à l'essai est donc ce qui est expédié."
+        },
+        "meta": {
+            "title": "Accueil",
+            "description": "Enwires est une entreprise grenobloise spécialisée dans les matériaux, qui développe SiBoost, un composite silicium-graphite augmentant la densité énergétique des batteries lithium-ion.",
+            "keywords": "Enwires, matériaux pour batteries Grenoble, composite silicium graphite, SiBoost, anode batterie lithium-ion, densité énergétique matériau batterie, anode graphite silicium France"
+        },
+        "hero": {
+            "eyebrow": "Matériaux pour batteries, conçus à Grenoble",
+            "headline": "Plus d'énergie pour votre batterie.",
+            "text": "Enwires conçoit des composites silicium-graphite qui augmentent la densité énergétique des batteries lithium-ion &mdash; sans changer leur mode de fabrication.",
+            "cta_primary": "Découvrir SiBoost",
+            "cta_secondary": "Nous contacter"
+        },
+        "who": {
+            "heading": "Qui sommes-nous",
+            "p1": "Enwires est une équipe d'une dizaine de personnes, entourée d'experts issus de l'industrie des batteries. Nous nous concentrons sur un seul problème : jusqu'où une anode à base de graphite peut être poussée avant de devoir être remplacée.",
+            "p2": "Les batteries lithium-ion comptent parmi les technologies les plus utilisées de la vie moderne, et parmi les plus contraintes. Nous développons des matériaux qui prolongent ce qui est déjà en production, plutôt que de demander aux fabricants de tout reprendre à zéro.",
+            "stat_number": "1,1&ndash;4&times;",
+            "stat_label": "la densité énergétique du graphite standard, grâce à notre composite SiBoost"
+        }
+    },
+    "product": {
+        "how": {
+            "steps": [
+                {
+                    "title": "Partir d'un graphite standard.",
+                    "text": "La plupart des qualités utilisées aujourd'hui dans l'industrie, y compris des matériaux actuellement sous-exploités."
+                },
+                {
+                    "title": "Introduire le silicium au niveau de la particule.",
+                    "text": "Le silicium est intégré à la structure du graphite plutôt que simplement mélangé."
+                },
+                {
+                    "title": "Vérifier par microscopie électronique.",
+                    "text": "Chaque lot est contrôlé au niveau de la surface des particules avant expédition."
+                }
+            ],
+            "images": [
+                {
+                    "src": "graphite-particle.jpg",
+                    "alt": "Image MEB d'une particule unique de SiBoost"
+                },
+                {
+                    "src": "electrode-coating-compare.jpg",
+                    "alt": "Comparaison macro de deux textures de surface d'électrode enrobée"
+                }
+            ],
+            "heading": "Comment ça marche"
+        },
+        "cells": {
+            "images": [
+                {
+                    "src": "coincell-components.jpg",
+                    "alt": "Composants d'une cellule bouton disposés en rangée : boîtier, disques d'électrode, séparateur, ressort, entretoise et capuchon"
+                },
+                {
+                    "src": "coincell-electrode-disc.jpg",
+                    "alt": "Une main gantée tient un disque d'électrode SiBoost avec une pince"
+                },
+                {
+                    "src": "coincell-crimping.jpg",
+                    "alt": "Un disque d'électrode SiBoost positionné sur une presse à sertir pour sceller la cellule"
+                },
+                {
+                    "src": "coincell-pressed-pellets.jpg",
+                    "alt": "Deux pastilles d'électrode SiBoost finies, pressées, côte à côte"
+                }
+            ],
+            "heading": "De la matière à la cellule",
+            "text": "SiBoost n'est pas seulement caractérisé sous forme de poudre &mdash; il est intégré dans de véritables cellules bouton et testé, comme il le serait sur une ligne de production."
+        },
+        "compare": {
+            "image": {
+                "src": "bottles.jpg",
+                "alt": "Deux flacons en verre côte à côte : poudre de graphite brute à gauche, poudre SiBoost dopée au silicium plus foncée à droite, tous deux étiquetés Enwires",
+                "caption": "À gauche : graphite standard. À droite : SiBoost, graphite dopé au silicium."
+            },
+            "heading": "Avant et après",
+            "text": "Le même graphite de base, avant traitement et après dopage au silicium."
+        },
+        "meta": {
+            "title": "SiBoost",
+            "description": "SiBoost est un composite de graphite dopé au silicium qui offre une densité énergétique 1,1 à 4 fois supérieure à celle du graphite standard dans les batteries lithium-ion.",
+            "keywords": "SiBoost, graphite dopé au silicium, composite silicium graphite, matériau d'anode Gr-Si, densité énergétique batterie lithium-ion, technologie d'anode silicium, fabricant d'anode pour batteries"
+        },
+        "hero": {
+            "eyebrow": "Produit",
+            "text": "Un graphite dopé au silicium conçu pour augmenter la densité énergétique des anodes de batteries lithium-ion, pensé pour fonctionner sur les lignes de production existantes."
+        },
+        "stat": {
+            "number": "1,1&ndash;4&times;",
+            "label": "de densité énergétique par rapport au graphite actuellement utilisé dans les batteries lithium-ion"
+        },
+        "what": {
+            "heading": "Qu'est-ce que SiBoost ?",
+            "p1": "SiBoost est un composite graphite-silicium (Gr-Si) qui associe la conductivité électronique du graphite à la capacité du silicium à interagir avec les ions lithium et à les stocker.",
+            "p2": "Cette combinaison est ce qui permet de dépasser la densité énergétique du graphite seul &mdash; de 1,1 à 4 fois la performance, selon la formulation et l'application visée."
+        },
+        "cta": {
+            "heading": "Apportez votre propre graphite",
+            "text": "Notre ligne de production s'adapte à la plupart des graphites déjà utilisés dans l'industrie &mdash; dites-nous avec quoi vous travaillez et nous vous dirons ce que SiBoost peut en faire.",
+            "button": "Nous contacter"
+        }
+    },
+    "nav": {
+        "home": "Accueil",
+        "product": "Produit",
+        "contact": "Contact",
+        "logo_alt": "Logo Enwires",
+        "toggle_aria": "Afficher/masquer la navigation"
+    },
+    "site": {
+        "tagline": "plus d'énergie pour votre batterie"
+    },
+    "contact": {
+        "meta": {
+            "title": "Contact",
+            "description": "Contactez Enwires à Grenoble, en France, pour échanger sur SiBoost et vos besoins en matériaux d'anode pour batteries.",
+            "keywords": "contact Enwires, Enwires Grenoble, contact matériaux pour batteries, demande SiBoost, fournisseur composite silicium graphite"
+        },
+        "hero": {
+            "eyebrow": "Contact",
+            "title": "Parlons de votre graphite.",
+            "text": "Que vous évaluiez SiBoost pour une nouvelle conception de cellule ou que vous ayez une qualité de graphite à nous soumettre, envoyez-nous un message et nous vous répondrons rapidement."
+        },
+        "form": {
+            "name_label": "Votre nom *",
+            "phone_label": "Votre numéro de téléphone",
+            "email_label": "Votre email *",
+            "subject_label": "Sujet",
+            "message_label": "Message *",
+            "required_note": "* champ requis",
+            "submit": "Envoyer le message",
+            "error_name": "Veuillez saisir votre nom.",
+            "error_email": "Veuillez saisir une adresse email valide.",
+            "error_message": "Veuillez saisir un message.",
+            "success": "Merci &mdash; votre message a bien été reçu. Nous reviendrons vers vous très prochainement."
+        },
+        "info": {
+            "location_label": "Localisation",
+            "email_label": "Email"
+        }
+    }
+}

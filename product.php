@@ -5,7 +5,7 @@ require_once __DIR__ . '/includes/config.php';
 $pageTitle = t('product.meta.title');
 $pageDescription = t('product.meta.description');
 $pageKeywords = t('product.meta.keywords');
-$pageImage = 'assets/img/bottles.jpg';
+$pageImage = 'assets/img/' . t('product.compare.image.src');
 require_once __DIR__ . '/includes/header.php';
 ?>
 
@@ -43,8 +43,8 @@ require_once __DIR__ . '/includes/header.php';
     </div>
     <div class="compare">
       <figure>
-        <img src="<?php echo ASSETS_URL; ?>assets/img/bottles.jpg" alt="<?php echo htmlspecialchars(t('product.compare.alt')); ?>">
-        <figcaption><?php echo t('product.compare.caption'); ?></figcaption>
+        <img src="<?php echo ASSETS_URL . 'assets/img/' . htmlspecialchars(t('product.compare.image.src')); ?>" alt="<?php echo htmlspecialchars(t('product.compare.image.alt')); ?>">
+        <figcaption><?php echo t('product.compare.image.caption'); ?></figcaption>
       </figure>
     </div>
   </div>
@@ -55,14 +55,16 @@ require_once __DIR__ . '/includes/header.php';
     <div>
       <h2 style="font-size:1.5rem;"><?php echo t('product.how.heading'); ?></h2>
       <ul class="steps">
-        <li><strong><?php echo t('product.how.step1.title'); ?></strong> <?php echo t('product.how.step1.text'); ?></li>
-        <li><strong><?php echo t('product.how.step2.title'); ?></strong> <?php echo t('product.how.step2.text'); ?></li>
-        <li><strong><?php echo t('product.how.step3.title'); ?></strong> <?php echo t('product.how.step3.text'); ?></li>
+        <?php foreach (t_list('product.how.steps') as $step): ?>
+        <li><strong><?php echo htmlspecialchars($step['title'] ?? ''); ?></strong> <?php echo htmlspecialchars($step['text'] ?? ''); ?></li>
+        <?php endforeach; ?>
       </ul>
     </div>
     <div>
-      <img src="<?php echo ASSETS_URL; ?>assets/img/graphite-particle.jpg" alt="<?php echo htmlspecialchars(t('product.how.image_alt')); ?>" style="border:1px solid var(--line); margin-bottom:12px;">
-      <img src="<?php echo ASSETS_URL; ?>assets/img/electrode-coating-compare.jpg" alt="<?php echo htmlspecialchars(t('product.how.image2_alt')); ?>" style="border:1px solid var(--line);">
+      <?php $howImages = t_list('product.how.images'); $howCount = count($howImages); ?>
+      <?php foreach ($howImages as $i => $img): ?>
+      <img src="<?php echo ASSETS_URL . 'assets/img/' . htmlspecialchars($img['src'] ?? ''); ?>" alt="<?php echo htmlspecialchars($img['alt'] ?? ''); ?>" style="border:1px solid var(--line); <?php echo ($i < $howCount - 1) ? 'margin-bottom:12px;' : ''; ?>">
+      <?php endforeach; ?>
     </div>
   </div>
 </section>
@@ -75,10 +77,9 @@ require_once __DIR__ . '/includes/header.php';
     </div>
   </div>
   <div class="filmstrip">
-    <img src="<?php echo ASSETS_URL; ?>assets/img/coincell-components.jpg" alt="<?php echo htmlspecialchars(t('product.cells.alt1')); ?>" loading="lazy">
-    <img src="<?php echo ASSETS_URL; ?>assets/img/coincell-electrode-disc.jpg" alt="<?php echo htmlspecialchars(t('product.cells.alt2')); ?>" loading="lazy">
-    <img src="<?php echo ASSETS_URL; ?>assets/img/coincell-crimping.jpg" alt="<?php echo htmlspecialchars(t('product.cells.alt3')); ?>" loading="lazy">
-    <img src="<?php echo ASSETS_URL; ?>assets/img/coincell-pressed-pellets.jpg" alt="<?php echo htmlspecialchars(t('product.cells.alt4')); ?>" loading="lazy">
+    <?php foreach (t_list('product.cells.images') as $img): ?>
+    <img src="<?php echo ASSETS_URL . 'assets/img/' . htmlspecialchars($img['src'] ?? ''); ?>" alt="<?php echo htmlspecialchars($img['alt'] ?? ''); ?>" loading="lazy">
+    <?php endforeach; ?>
   </div>
 </section>
 

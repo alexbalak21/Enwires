@@ -1,0 +1,4 @@
+# Library files included by admin/*.php — not meant to be requested directly.
+Require all denied
+Order deny,allow
+Deny from all

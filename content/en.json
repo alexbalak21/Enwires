@@ -1,0 +1,210 @@
+{
+    "home": {
+        "offer": {
+            "items": [
+                {
+                    "title": "Higher energy density",
+                    "text": "SiBoost combines graphite's conductivity with silicon's capacity to store lithium, so cells can hold more energy at the same size."
+                },
+                {
+                    "title": "Drop-in compatibility",
+                    "text": "Our process adapts to graphite grades already used across the industry, including material that's currently under-used because of its characteristics."
+                },
+                {
+                    "title": "Smaller or lighter cells",
+                    "text": "The same performance in less volume and weight &mdash; or more performance in the footprint manufacturers already have."
+                }
+            ],
+            "heading": "What we offer"
+        },
+        "filmstrip": {
+            "images": [
+                {
+                    "src": "graphite-powder-macro.jpg",
+                    "alt": "Raw graphite powder, before treatment"
+                },
+                {
+                    "src": "powder-comparison-macro.jpg",
+                    "alt": "Raw graphite powder next to silicon-doped SiBoost powder, side by side"
+                },
+                {
+                    "src": "graphite-particle.jpg",
+                    "alt": "Single graphite particle under electron microscope"
+                },
+                {
+                    "src": "micorscorpe-zoom.jpg",
+                    "alt": "Particle surface texture under microscope"
+                },
+                {
+                    "src": "microscope-zoom-2.jpg",
+                    "alt": "Close-up of coated particle surface"
+                },
+                {
+                    "src": "powder-samples-wood-containers.jpg",
+                    "alt": "A row of small sample trays holding different powder formulations, from dark raw material to fine light powders"
+                }
+            ],
+            "heading": "From powder to particle",
+            "text": "Every batch is verified under electron microscopy before it leaves the lab."
+        },
+        "pilot": {
+            "images": [
+                {
+                    "src": "pilot-reactor-technician.jpg",
+                    "alt": "A technician in a respirator mask adjusts a valve on a stainless steel pilot reactor"
+                },
+                {
+                    "src": "pilot-reactor-technician-zoom-on-hands.jpg",
+                    "alt": "Close-up of gloved hands adjusting a fitting on the pilot reactor, lit in purple"
+                },
+                {
+                    "src": "putting-graphite-powder-macro.jpg",
+                    "alt": "A scoop of graphite powder being measured and added into a mixing vessel"
+                }
+            ],
+            "heading": "Built at pilot scale",
+            "text": "SiBoost is produced on real production equipment, not lab glassware &mdash; so what works in testing is what ships."
+        },
+        "meta": {
+            "title": "Home",
+            "description": "Enwires is a Grenoble-based materials company developing SiBoost, a silicon-graphite composite that increases the energy density of lithium-ion batteries.",
+            "keywords": "Enwires, battery materials Grenoble, silicon graphite composite, SiBoost, lithium-ion battery anode, energy density battery material, graphite silicon anode France"
+        },
+        "hero": {
+            "eyebrow": "Battery materials, engineered in Grenoble",
+            "headline": "More energy in your battery.",
+            "text": "Enwires builds silicon-graphite composites that raise the energy density of lithium-ion batteries &mdash; without changing how they're manufactured.",
+            "cta_primary": "See SiBoost",
+            "cta_secondary": "Talk to us"
+        },
+        "who": {
+            "heading": "Who we are",
+            "p1": "Enwires is a team of around ten people, working alongside experts from the battery industry. We focus on one problem: how far a graphite-based anode can be pushed before it needs to be replaced.",
+            "p2": "Lithium-ion batteries are one of the most widely used technologies of modern life, and one of the most constrained. We build materials that extend what's already in production, rather than asking manufacturers to start over.",
+            "stat_number": "1.1&ndash;4&times;",
+            "stat_label": "the energy density of standard graphite, from our SiBoost composite"
+        }
+    },
+    "product": {
+        "how": {
+            "steps": [
+                {
+                    "title": "Start from standard graphite.",
+                    "text": "Most grades used in the industry today, including material that's currently under-used."
+                },
+                {
+                    "title": "Introduce silicon at the particle level.",
+                    "text": "Silicon is bonded into the graphite structure rather than simply blended in."
+                },
+                {
+                    "title": "Verify under electron microscopy.",
+                    "text": "Every batch is checked at the particle surface before it ships."
+                }
+            ],
+            "images": [
+                {
+                    "src": "graphite-particle.jpg",
+                    "alt": "SEM image of a single SiBoost particle"
+                },
+                {
+                    "src": "electrode-coating-compare.jpg",
+                    "alt": "Macro comparison of two coated electrode surface textures"
+                }
+            ],
+            "heading": "How it works"
+        },
+        "cells": {
+            "images": [
+                {
+                    "src": "coincell-components.jpg",
+                    "alt": "Coin cell components laid out in a row: case, electrode discs, separator, spring, spacer and cap"
+                },
+                {
+                    "src": "coincell-electrode-disc.jpg",
+                    "alt": "A gloved hand holds a SiBoost electrode disc with tweezers"
+                },
+                {
+                    "src": "coincell-crimping.jpg",
+                    "alt": "A SiBoost electrode disc positioned on a crimping press to seal the cell"
+                },
+                {
+                    "src": "coincell-pressed-pellets.jpg",
+                    "alt": "Two finished, pressed SiBoost electrode pellets side by side"
+                }
+            ],
+            "heading": "From material to cell",
+            "text": "SiBoost isn't just characterized as a powder &mdash; it's built into real coin cells and tested, the same way it would be in a production line."
+        },
+        "compare": {
+            "image": {
+                "src": "bottles.jpg",
+                "alt": "Two glass bottles side by side: raw graphite powder on the left, darker SiBoost silicon-doped powder on the right, both labelled Enwires",
+                "caption": "Left: standard graphite. Right: SiBoost, silicon-doped graphite."
+            },
+            "heading": "Before and after",
+            "text": "The same base graphite, before treatment and after silicon doping."
+        },
+        "meta": {
+            "title": "SiBoost",
+            "description": "SiBoost is a silicon-doped graphite composite that delivers 1.1 to 4 times the energy density of standard graphite in lithium-ion batteries.",
+            "keywords": "SiBoost, silicon doped graphite, graphite silicon composite, Gr-Si anode material, lithium-ion battery energy density, silicon anode technology, battery anode manufacturer"
+        },
+        "hero": {
+            "eyebrow": "Product",
+            "text": "A silicon-doped graphite designed to increase the energy density of lithium-ion battery anodes, built to run on existing production lines."
+        },
+        "stat": {
+            "number": "1.1&ndash;4&times;",
+            "label": "energy density compared with the graphite currently used in lithium-ion batteries"
+        },
+        "what": {
+            "heading": "What is SiBoost?",
+            "p1": "SiBoost is a graphite-silicon composite (Gr-Si) that pairs graphite's electronic conductivity with silicon's ability to interact with and store lithium ions.",
+            "p2": "That combination is what pushes the energy density beyond what graphite alone can offer &mdash; anywhere from 1.1 to 4 times the performance, depending on the formulation and the target application."
+        },
+        "cta": {
+            "heading": "Bring your own graphite",
+            "text": "Our production line adapts to most graphite materials already used in the industry &mdash; tell us what you're working with and we'll tell you what SiBoost can do with it.",
+            "button": "Get in touch"
+        }
+    },
+    "nav": {
+        "home": "Home",
+        "product": "Product",
+        "contact": "Contact",
+        "logo_alt": "Enwires logo",
+        "toggle_aria": "Toggle navigation"
+    },
+    "site": {
+        "tagline": "more energy in your battery"
+    },
+    "contact": {
+        "meta": {
+            "title": "Contact",
+            "description": "Get in touch with Enwires in Grenoble, France, to discuss SiBoost for your battery anode material needs.",
+            "keywords": "contact Enwires, Enwires Grenoble, battery materials contact, SiBoost inquiry, graphite silicon composite supplier"
+        },
+        "hero": {
+            "eyebrow": "Contact",
+            "title": "Let's talk about your graphite.",
+            "text": "Whether you're evaluating SiBoost for a new cell design or have a graphite grade you'd like us to look at, send us a note and we'll get back to you."
+        },
+        "form": {
+            "name_label": "Your name *",
+            "phone_label": "Your phone number",
+            "email_label": "Your email *",
+            "subject_label": "Subject",
+            "message_label": "Message *",
+            "required_note": "* required",
+            "submit": "Send message",
+            "error_name": "Please enter your name.",
+            "error_email": "Please enter a valid email address.",
+            "error_message": "Please enter a message.",
+            "success": "Thanks &mdash; your message has been received. We'll be in touch shortly."
+        },
+        "info": {
+            "location_label": "Location",
+            "email_label": "Email"
+        }
+    }
+}

@@ -26,14 +26,15 @@ The public site (`index.php`, `product.php`, `contact.php`, and the `/fr/`
 
 ## One-time setup
 
-1. **Create your admin account** — there's no sign-up form; run this once
-   from the server's command line (SSH or your host's terminal):
+1. **Create your first admin account** — there's no sign-up form in the
+   browser; run this once from the server's command line (SSH or your
+   host's terminal):
    ```
-   php admin/create-admin.php <username> <password>
+   php admin/create-admin.php <username> <email> <password>
    ```
-   Password must be at least 8 characters. Run it again any time to add
-   another admin or reset a password — there's deliberately no "forgot
-   password" flow in the web UI.
+   Password must be at least 8 characters. After the first account is
+   created, use **Users → Add admin user** inside the admin panel to add
+   more — no need to use the command line again.
 
 2. **Protect `/content/` and `/data/` at the server level.** Both folders
    already ship with an `.htaccess` that blocks direct access — but
@@ -49,7 +50,7 @@ The public site (`index.php`, `product.php`, `contact.php`, and the `/fr/`
 
 ## Using the editor
 
-- **Dashboard** (`/admin/index.php`) — pick a page (Home / Product / Contact),
+- **Dashboard** (`/admin/`) — pick a page (Home / Product / Contact),
   then a language.
 - **Edit form** — every field is grouped by section, matching the page's
   actual layout. Switch languages any time via the tabs at the top; each
@@ -65,6 +66,41 @@ The public site (`index.php`, `product.php`, `contact.php`, and the `/fr/`
 - Nothing is written to disk until you click **Save changes** — reordering,
   adding, or removing a row just redraws the form first, so you can fix a
   mistake before it's actually saved.
+
+## Managing admin users
+
+Access **Users** from the top-right nav (or the header link) once logged in.
+
+- **Add user** — click "+ Add admin user", fill in username, email,
+  and password.
+- **Edit user** — click "Edit" next to any account to update username,
+  email, or password. Leave the password fields blank to keep the current
+  password unchanged.
+- **Delete user** — click "Delete" (only shown when 2+ accounts exist —
+  the last account can never be deleted, so you can't lock yourself out).
+- **My account** — the "My account" link in the top nav always points to
+  your own edit form, so you can change your own email or password while
+  logged in.
+
+### Forgot password / reset by email
+
+If you can't log in, go to `/admin/forgot-password.php`. Enter the email
+address on the account — a reset link is emailed to it, valid for **60
+minutes**. Clicking the link lets you set a new password, then redirects
+to the login page.
+
+**Important:** the reset email is sent via PHP's built-in `mail()` function.
+This relies on a mail transport being configured on the server (sendmail,
+postfix, or your host's outgoing mail service). On most shared-hosting plans
+this works automatically. On a local dev machine it will silently not send —
+to test locally, either set up a local mail catcher (Mailhog, Mailpit) or
+temporarily copy the raw reset token out of `data/admin.sqlite` and
+construct the URL by hand.
+
+To switch to a real SMTP provider (Mailgun, Brevo, SendGrid, etc.) for
+production — open `admin/includes/mailer.php` and replace the body of
+`send_email()` with a PHPMailer or Symfony Mailer call. Nothing else in
+the app needs to change.
 
 ---
 
@@ -82,7 +118,17 @@ The public site (`index.php`, `product.php`, `contact.php`, and the `/fr/`
   data is checked (via PHP's `finfo` + GD re-encoding), not just its `.jpg`
   extension, before it's accepted.
 - **CSRF protection** on every form submission.
-- **Passwords are hashed** (`password_hash()`), never stored in plain text.
+- **Passwords are hashed** (`password_hash()` / bcrypt), never stored in
+  plain text. The SQLite database (`data/admin.sqlite`) is blocked from
+  direct HTTP access by `.htaccess`.
+- **Password reset tokens** are stored as SHA-256 hashes only (the raw
+  token is only ever sent by email, never stored). Each token expires after
+  60 minutes and is marked used immediately on first consumption — it cannot
+  be reused, and creating a new reset token for a user automatically
+  invalidates any previous outstanding token for that account.
+- **Timing-safe login checks** — failed login attempts take the same amount
+  of time whether the username/email exists or not, so you can't tell which
+  accounts are registered by measuring response time.
 
 ---
 

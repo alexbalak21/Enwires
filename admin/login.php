@@ -52,6 +52,9 @@ require __DIR__ . '/includes/layout-header.php';
       <input type="password" id="password" name="password" autocomplete="current-password" required>
     </div>
     <button type="submit" class="btn-primary">Log in</button>
+    <p style="margin:14px 0 0; font-size:.85rem;">
+      <a href="forgot-password.php">Forgot your password?</a>
+    </p>
   </form>
 </div>
 

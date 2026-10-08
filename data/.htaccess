@@ -1,4 +1,5 @@
-# Admin credentials and content backups — never serve this folder directly.
+# Admin credentials, SQLite database, and content backups — never serve
+# this folder or its contents directly over HTTP.
 Require all denied
 Order deny,allow
 Deny from all

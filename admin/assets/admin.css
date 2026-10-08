@@ -120,3 +120,21 @@ textarea { resize: vertical; }
 .form-actions { position: sticky; bottom: 0; background: var(--bg); padding: 16px 0; margin-top: 24px; border-top: 1px solid var(--line); }
 .back-link { display: inline-block; margin-bottom: 18px; font-size: .88rem; color: var(--ink-dim); text-decoration: none; }
 .back-link:hover { color: var(--red); }
+
+/* --- User management ------------------------------------------------- */
+.admin-topnav-sep { color: var(--line); }
+
+.users-table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.users-table th { text-align: left; padding: 8px 12px; border-bottom: 2px solid var(--line); font-size: .8rem; color: var(--ink-dim); text-transform: uppercase; letter-spacing: .04em; }
+.users-table td { padding: 12px 12px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+.users-table tr:last-child td { border-bottom: none; }
+.users-table-actions { display: flex; gap: 12px; align-items: center; white-space: nowrap; }
+.users-table-actions a { color: var(--red); text-decoration: none; font-size: .85rem; }
+.users-table-actions a:hover { text-decoration: underline; }
+
+.you-tag { font-size: .75rem; color: var(--ink-dim); font-weight: 400; }
+
+.link-button { background: none; border: none; padding: 0; cursor: pointer; font-family: var(--font); font-size: .85rem; color: var(--error); }
+.link-button:hover { text-decoration: underline; }
+
+.field-hint { font-size: .78rem; color: var(--ink-dim); font-weight: 400; margin-left: 6px; }

@@ -16,7 +16,7 @@ require __DIR__ . '/includes/layout-header.php';
 ?>
 
 <h1>Content</h1>
-<p class="subtitle">Pick a page, then a language, to start editing.</p>
+<p class="subtitle">Pick a page and language to edit. Manage admin accounts under <a href="users.php">Users</a>.</p>
 
 <div class="dashboard-grid">
   <?php foreach ($schema as $pageKey => $pageDef): ?>

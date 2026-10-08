@@ -1,9 +1,11 @@
 <?php
-// Session-based auth for the admin panel. Included by every admin page
-// before any output.
+// Session-based auth for the admin panel, backed by the SQLite users table.
+// Included by every admin page before any output.
+
+require_once __DIR__ . '/db.php';
+require_once __DIR__ . '/users.php';
 
 if (session_status() !== PHP_SESSION_ACTIVE) {
-    // Harden the session cookie a little beyond PHP's defaults.
     session_set_cookie_params([
         'lifetime' => 0,
         'path'     => '/admin/',
@@ -14,22 +16,16 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
 
-define('ADMIN_USERS_FILE', dirname(__DIR__, 2) . '/data/admin-users.php');
-
-function admin_load_users() {
-    if (!is_file(ADMIN_USERS_FILE)) {
-        return [];
-    }
-    $users = require ADMIN_USERS_FILE;
-    return is_array($users) ? $users : [];
-}
-
 function admin_current_user() {
     return $_SESSION['admin_user'] ?? null;
 }
 
+function admin_current_user_id() {
+    return $_SESSION['admin_user_id'] ?? null;
+}
+
 function admin_is_logged_in() {
-    return admin_current_user() !== null;
+    return admin_current_user_id() !== null;
 }
 
 /**
@@ -45,23 +41,20 @@ function admin_require_login() {
 }
 
 /**
- * Attempt to log in. Returns true on success (and sets the session), false
- * on failure. Intentionally takes the same amount of time whether the
- * username exists or not, to avoid leaking which usernames are valid via
- * response timing.
+ * Attempt to log in by username OR email. Returns true on success (and
+ * sets the session), false on failure. Always runs password_verify
+ * against *something*, even for an unknown identifier, so failed attempts
+ * take a consistent amount of time regardless of whether the account exists.
  */
-function admin_attempt_login($username, $password) {
-    $users = admin_load_users();
-    $hash = $users[$username]['password_hash'] ?? null;
-
-    // Always run password_verify against *something*, even for an unknown
-    // username, so failed attempts take a consistent amount of time.
+function admin_attempt_login($identifier, $password) {
+    $user = users_find_by_username_or_email(trim($identifier));
     $dummyHash = '$2y$10$abcdefghijklmnopqrstuuJrK8z0h6g3z8z0h6g3z8z0h6g3z8z0h6';
-    $ok = password_verify($password, $hash ?? $dummyHash);
+    $ok = password_verify($password, $user['password_hash'] ?? $dummyHash);
 
-    if ($ok && $hash !== null) {
+    if ($ok && $user) {
         session_regenerate_id(true);
-        $_SESSION['admin_user'] = $username;
+        $_SESSION['admin_user'] = $user['username'];
+        $_SESSION['admin_user_id'] = (int) $user['id'];
         return true;
     }
     return false;

@@ -15,7 +15,9 @@
     <a href="index.php" class="admin-brand">Enwires <span>Admin</span></a>
     <?php if (admin_is_logged_in()): ?>
     <nav class="admin-topnav">
-      <span>Signed in as <strong><?php echo htmlspecialchars(admin_current_user()); ?></strong></span>
+      <a href="users.php">Users</a>
+      <a href="user-edit.php?id=<?php echo admin_current_user_id(); ?>">My account</a>
+      <span class="admin-topnav-sep">|</span>
       <a href="logout.php">Log out</a>
     </nav>
     <?php endif; ?>

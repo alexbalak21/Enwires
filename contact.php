@@ -1,6 +1,7 @@
 <?php
 if (!isset($lang)) { $lang = 'en'; }
 require_once __DIR__ . '/includes/config.php';
+require_once __DIR__ . '/includes/contact-mailer.php';
 
 $pageTitle = t('contact.meta.title');
 $pageDescription = t('contact.meta.description');
@@ -9,6 +10,15 @@ $pageKeywords = t('contact.meta.keywords');
 $formSubmitted = false;
 $formErrors = [];
 $values = ['name' => '', 'email' => '', 'phone' => '', 'subject' => '', 'message' => ''];
+
+// Shown if the mail server refuses the message (kept here so it doesn't
+// depend on the CMS content files).
+$sendErrors = [
+    'en' => 'Sorry, your message could not be sent. Please try again or email us directly at ' . SITE_EMAIL . '.',
+    'fr' => "Désolé, votre message n'a pas pu être envoyé. Veuillez réessayer ou nous écrire directement à " . SITE_EMAIL . '.',
+    'zh' => '抱歉，您的留言发送失败。请稍后重试，或直接发送邮件至 ' . SITE_EMAIL . '。',
+    'ja' => '申し訳ございません。メッセージを送信できませんでした。もう一度お試しいただくか、' . SITE_EMAIL . ' まで直接ご連絡ください。',
+];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($values as $key => $default) {
@@ -25,11 +35,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $formErrors[] = t('contact.form.error_message');
     }
 
-    if (empty($formErrors)) {
-        // TODO: wire up a real mailer (SMTP / mail()) once credentials are available.
-        // Left unsent intentionally — no mail transport configured yet.
+    // Honeypot: real visitors never see/fill this field, bots usually do.
+    // Pretend success so the bot doesn't retry.
+    if (!empty($_POST['website'])) {
         $formSubmitted = true;
         $values = ['name' => '', 'email' => '', 'phone' => '', 'subject' => '', 'message' => ''];
+    } elseif (empty($formErrors)) {
+        if (send_contact_email($values, CURRENT_LANG)) {
+            $formSubmitted = true;
+            $values = ['name' => '', 'email' => '', 'phone' => '', 'subject' => '', 'message' => ''];
+        } else {
+            // Keep what the visitor typed so they don't lose their message.
+            $formErrors[] = $sendErrors[CURRENT_LANG] ?? $sendErrors['en'];
+        }
     }
 }
 
@@ -56,6 +74,10 @@ require_once __DIR__ . '/includes/header.php';
       <?php endif; ?>
 
       <form action="<?php echo PAGE_BASE; ?>contact.php" method="post" novalidate>
+        <div style="position:absolute; left:-9999px;" aria-hidden="true">
+          <label for="website">Leave this field empty</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
         <div class="form-grid">
           <div class="field">
             <label for="name"><?php echo t('contact.form.name_label'); ?></label>

@@ -138,8 +138,8 @@
         "compare": {
             "image": {
                 "src": "bottles.jpg",
-                "alt": "两个玻璃瓶并排放置：左侧为原始石墨粉末，右侧为颜色更深的 SiBoost 掺硅粉末，均贴有 Enwires 标签",
-                "caption": "左：标准石墨。右：SiBoost 硅掺杂石墨。"
+                "alt": "两个玻璃瓶并排放置：左侧为颜色更深的 SiBoost 掺硅粉末，右侧为原始石墨粉末，均贴有 Enwires 标签",
+                "caption": "左：SiBoost 硅掺杂石墨。右：标准石墨。"
             },
             "heading": "处理前后对比",
             "text": "同一种基础石墨，处理前与掺硅处理后的对比。"

@@ -44,7 +44,7 @@ require_once __DIR__ . '/includes/header.php';
     <div class="compare">
       <figure>
         <img src="<?php echo ASSETS_URL . 'assets/img/' . htmlspecialchars(t('product.compare.image.src')); ?>" alt="<?php echo htmlspecialchars(t('product.compare.image.alt')); ?>">
-        <figcaption><?php echo t('product.compare.image.caption'); ?></figcaption>
+        <figcaption style="color: var(--ink-dim);"><?php echo t('product.compare.image.caption'); ?></figcaption>
       </figure>
     </div>
   </div>

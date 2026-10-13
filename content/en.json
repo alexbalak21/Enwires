@@ -138,8 +138,8 @@
         "compare": {
             "image": {
                 "src": "bottles.jpg",
-                "alt": "Two glass bottles side by side: raw graphite powder on the left, darker SiBoost silicon-doped powder on the right, both labelled Enwires",
-                "caption": "Left: standard graphite. Right: SiBoost, silicon-doped graphite."
+                "alt": "Two glass bottles side by side: darker SiBoost silicon-doped powder on the left, raw graphite powder on the right, both labelled Enwires",
+                "caption": "Left: SiBoost, silicon-doped graphite. Right: standard graphite."
             },
             "heading": "Before and after",
             "text": "The same base graphite, before treatment and after silicon doping."

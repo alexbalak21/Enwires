@@ -138,8 +138,8 @@
         "compare": {
             "image": {
                 "src": "bottles.jpg",
-                "alt": "Deux flacons en verre côte à côte : poudre de graphite brute à gauche, poudre SiBoost dopée au silicium plus foncée à droite, tous deux étiquetés Enwires",
-                "caption": "À gauche : graphite standard. À droite : SiBoost, graphite dopé au silicium."
+                "alt": "Deux flacons en verre côte à côte : poudre SiBoost dopée au silicium, plus foncée, à gauche ; poudre de graphite brute à droite",
+                "caption": "À gauche : SiBoost, graphite dopé au silicium. À droite : graphite standard."
             },
             "heading": "Avant et après",
             "text": "Le même graphite de base, avant traitement et après dopage au silicium."

@@ -12,6 +12,7 @@
   --ink-on-paper-dim: #5C5A58;
   --red: #FF1400;
   --red-dim: #B31000;
+  --brand-red: #FF1400;
   --line: #5C5B5D;
   --line-on-paper: #D3CFC8;
 
@@ -123,8 +124,8 @@ p {
 .brand-name {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.05rem;
-  color: var(--ink);
+  font-size: 1.2rem;
+  color: var(--red);
   letter-spacing: 0.02em;
 }
 

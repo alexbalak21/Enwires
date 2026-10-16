@@ -206,5 +206,147 @@
             "location_label": "Localisation",
             "email_label": "Email"
         }
+    },
+    "blocks": {
+        "home_hero": {
+            "eyebrow": "Matériaux pour batteries, conçus à Grenoble",
+            "headline": "Plus d'énergie pour votre batterie.",
+            "text": "Enwires conçoit des composites silicium-graphite qui augmentent la densité énergétique des batteries lithium-ion &mdash; sans changer leur mode de fabrication.",
+            "cta_primary": "Découvrir SiBoost",
+            "cta_secondary": "Nous contacter"
+        },
+        "home_divider": [],
+        "home_who": {
+            "heading": "Qui sommes-nous",
+            "p1": "Enwires est une équipe d'une dizaine de personnes, entourée d'experts issus de l'industrie des batteries. Nous nous concentrons sur un seul problème : jusqu'où une anode à base de graphite peut être poussée avant de devoir être remplacée.",
+            "p2": "Les batteries lithium-ion comptent parmi les technologies les plus utilisées de la vie moderne, et parmi les plus contraintes. Nous développons des matériaux qui prolongent ce qui est déjà en production, plutôt que de demander aux fabricants de tout reprendre à zéro.",
+            "stat_number": "1,1&ndash;4&times;",
+            "stat_label": "la densité énergétique du graphite standard, grâce à notre composite SiBoost"
+        },
+        "home_offer": {
+            "heading": "Ce que nous proposons",
+            "items": {
+                "i1": {
+                    "title": "Une densité énergétique plus élevée",
+                    "text": "SiBoost associe la conductivité du graphite à la capacité du silicium à stocker le lithium, permettant aux cellules de contenir plus d'énergie à taille égale."
+                },
+                "i2": {
+                    "title": "Une compatibilité directe",
+                    "text": "Notre procédé s'adapte aux qualités de graphite déjà utilisées dans l'industrie, y compris des matériaux aujourd'hui sous-exploités en raison de leurs caractéristiques."
+                },
+                "i3": {
+                    "title": "Des cellules plus petites ou plus légères",
+                    "text": "La même performance dans un volume et un poids réduits ou plus de performance dans l'encombrement déjà utilisé par les fabricants."
+                }
+            }
+        },
+        "home_pilot": {
+            "heading": "Fabriqué à l'échelle pilote",
+            "text": "SiBoost est produit sur un véritable équipement de production, pas en verrerie de laboratoire &mdash; ce qui fonctionne à l'essai est donc ce qui est expédié.",
+            "images": {
+                "i1": {
+                    "alt": "Un technicien portant un masque respiratoire règle une vanne sur un réacteur pilote en acier inoxydable"
+                },
+                "i2": {
+                    "alt": "Gros plan sur des mains gantées réglant un raccord du réacteur pilote, sous un éclairage violet"
+                },
+                "i3": {
+                    "alt": "Une dose de poudre de graphite mesurée puis versée dans une cuve de mélange"
+                }
+            }
+        },
+        "home_filmstrip": {
+            "heading": "De la poudre à la particule",
+            "text": "Chaque lot est vérifié par microscopie électronique avant de quitter le laboratoire.",
+            "images": {
+                "i1": {
+                    "alt": "Poudre de graphite brute, avant traitement"
+                },
+                "i2": {
+                    "alt": "Poudre de graphite brute à côté de la poudre SiBoost dopée au silicium"
+                },
+                "i3": {
+                    "alt": "Particule de graphite unique au microscope électronique"
+                },
+                "i4": {
+                    "alt": "Texture de surface d'une particule au microscope"
+                },
+                "i5": {
+                    "alt": "Gros plan sur la surface d'une particule enrobée"
+                },
+                "i6": {
+                    "alt": "Une série de petits plateaux d'échantillons contenant différentes formulations de poudre, de la matière brute foncée aux poudres claires fines"
+                }
+            }
+        },
+        "product_intro": {
+            "eyebrow": "Produit",
+            "text": "Un graphite dopé au silicium conçu pour augmenter la densité énergétique des anodes de batteries lithium-ion, pensé pour fonctionner sur les lignes de production existantes.",
+            "heading": "SiBoost"
+        },
+        "product_divider": [],
+        "product_what": {
+            "heading": "Qu'est-ce que SiBoost ?",
+            "p1": "SiBoost est un composite graphite-silicium (Gr-Si) qui associe la conductivité électronique du graphite à la capacité du silicium à interagir avec les ions lithium et à les stocker.",
+            "p2": "Cette combinaison est ce qui permet de dépasser la densité énergétique du graphite seul &mdash; de 1,1 à 4 fois la performance, selon la formulation et l'application visée.",
+            "stat_number": "1,1&ndash;4&times;",
+            "stat_label": "de densité énergétique par rapport au graphite actuellement utilisé dans les batteries lithium-ion"
+        },
+        "product_compare": {
+            "heading": "Avant et après",
+            "text": "Le même graphite de base, avant traitement et après dopage au silicium.",
+            "image": {
+                "alt": "Deux flacons en verre côte à côte : poudre SiBoost dopée au silicium, plus foncée, à gauche ; poudre de graphite brute à droite",
+                "caption": "À gauche : SiBoost, graphite dopé au silicium. À droite : graphite standard."
+            }
+        },
+        "product_how": {
+            "heading": "Comment ça marche",
+            "images": {
+                "i1": {
+                    "alt": "Image MEB d'une particule unique de SiBoost"
+                },
+                "i2": {
+                    "alt": "Comparaison macro de deux textures de surface d'électrode enrobée"
+                }
+            },
+            "steps": {
+                "i1": {
+                    "title": "Partir d'un graphite standard.",
+                    "text": "La plupart des qualités utilisées aujourd'hui dans l'industrie, y compris des matériaux actuellement sous-exploités."
+                },
+                "i2": {
+                    "title": "Introduire le silicium au niveau de la particule.",
+                    "text": "Le silicium est intégré à la structure du graphite plutôt que simplement mélangé."
+                },
+                "i3": {
+                    "title": "Vérifier par microscopie électronique.",
+                    "text": "Chaque lot est contrôlé au niveau de la surface des particules avant expédition."
+                }
+            }
+        },
+        "product_cells": {
+            "heading": "De la matière à la cellule",
+            "text": "SiBoost n'est pas seulement caractérisé sous forme de poudre &mdash; il est intégré dans de véritables cellules bouton et testé, comme il le serait sur une ligne de production.",
+            "images": {
+                "i1": {
+                    "alt": "Composants d'une cellule bouton disposés en rangée : boîtier, disques d'électrode, séparateur, ressort, entretoise et capuchon"
+                },
+                "i2": {
+                    "alt": "Une main gantée tient un disque d'électrode SiBoost avec une pince"
+                },
+                "i3": {
+                    "alt": "Un disque d'électrode SiBoost positionné sur une presse à sertir pour sceller la cellule"
+                },
+                "i4": {
+                    "alt": "Deux pastilles d'électrode SiBoost finies, pressées, côte à côte"
+                }
+            }
+        },
+        "product_cta": {
+            "heading": "Apportez votre propre graphite",
+            "text": "Notre ligne de production s'adapte à la plupart des graphites déjà utilisés dans l'industrie &mdash; dites-nous avec quoi vous travaillez et nous vous dirons ce que SiBoost peut en faire.",
+            "button": "Nous contacter"
+        }
     }
 }

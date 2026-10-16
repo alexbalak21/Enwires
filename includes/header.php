@@ -1,28 +1,37 @@
 <?php
 require_once __DIR__ . '/config.php';
-$current = basename($_SERVER['SCRIPT_NAME']);
+
+// Header / footer content (brand, links, ...) comes from the admin: /admin/layout.php
+$L = enw_layout();
+
+// Which page is being shown: set by router.php (or the admin live preview).
+$pageKey  = enw_current_page_key();
+$pageSlug = enw_page_slug($pageKey);
 
 // Remember whatever language is actually being shown on this page — whether
 // that's from browser-language detection, a manual click on the language
-// switcher, or a direct/shared link to a specific language folder. This is
+// switcher, or a direct/shared link to a specific language URL. This is
 // what includes/language-detect.php checks on a later visit to "/", so a
 // manual choice always wins over the original auto-detection.
-if (!headers_sent()) {
+if (!headers_sent() && !defined('ENWIRES_PREVIEW')) {
     setcookie('enwires_lang', CURRENT_LANG, time() + 60 * 60 * 24 * 365, '/');
 }
 
 // Per-page SEO values, with sane fallbacks. Set $pageTitle / $pageDescription /
 // $pageKeywords / $pageImage before including this file to override.
+// Set $pageNoindex = true for pages that must stay out of search results (404).
 $metaDescription = isset($pageDescription) ? $pageDescription : DEFAULT_DESCRIPTION;
 $metaKeywords    = isset($pageKeywords) ? $pageKeywords : DEFAULT_KEYWORDS;
-$metaTitle       = isset($pageTitle) ? $pageTitle . ' · ' . SITE_NAME . ' — ' . t('site.tagline') : SITE_NAME . ' — ' . t('site.tagline');
+$brandName       = $L['brand']['name'];
+$brandLine       = $brandName . ($L['brand']['tagline'] !== '' ? ' — ' . $L['brand']['tagline'] : '');
+$metaTitle       = isset($pageTitle) ? $pageTitle . ' · ' . $brandLine : $brandLine;
+$noindex         = !empty($pageNoindex);
 
-// Build this page's URL in every language, for the canonical link and the
-// hreflang alternate tags (both need root-absolute, full URLs).
-$pagePath = ($current === 'index.php') ? '' : $current;
+// This page's URL in every language, for the canonical link and the hreflang
+// alternate tags (both need root-absolute, full URLs). Clean URLs: /product, /fr/product ...
 $alternateUrls = [];
 foreach ($GLOBALS['LANGUAGES'] as $code => $meta) {
-    $alternateUrls[$code] = rtrim(SITE_URL, '/') . '/' . $meta['prefix'] . $pagePath;
+    $alternateUrls[$code] = rtrim(SITE_URL, '/') . '/' . $meta['prefix'] . $pageSlug;
 }
 $canonicalUrl = $alternateUrls[CURRENT_LANG];
 $ogImage      = rtrim(SITE_URL, '/') . '/' . (isset($pageImage) ? $pageImage : 'assets/img/bottles.jpg');
@@ -37,8 +46,9 @@ $ogImage      = rtrim(SITE_URL, '/') . '/' . (isset($pageImage) ? $pageImage : '
 <!-- Core SEO -->
 <meta name="description" content="<?php echo htmlspecialchars($metaDescription); ?>">
 <meta name="keywords" content="<?php echo htmlspecialchars($metaKeywords); ?>">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="<?php echo $noindex ? 'noindex, follow' : 'index, follow'; ?>">
 <meta name="author" content="Enwires">
+<?php if (!$noindex): ?>
 <link rel="canonical" href="<?php echo htmlspecialchars($canonicalUrl); ?>">
 
 <!-- hreflang: tells search engines which language/URL to show for each visitor -->
@@ -46,10 +56,11 @@ $ogImage      = rtrim(SITE_URL, '/') . '/' . (isset($pageImage) ? $pageImage : '
 <link rel="alternate" hreflang="<?php echo $GLOBALS['LANGUAGES'][$code]['html_lang']; ?>" href="<?php echo htmlspecialchars($url); ?>">
 <?php endforeach; ?>
 <link rel="alternate" hreflang="x-default" href="<?php echo htmlspecialchars($alternateUrls['en']); ?>">
+<?php endif; ?>
 
 <!-- Open Graph (Facebook, LinkedIn, etc.) -->
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="<?php echo SITE_NAME; ?>">
+<meta property="og:site_name" content="<?php echo htmlspecialchars($brandName); ?>">
 <meta property="og:title" content="<?php echo htmlspecialchars($metaTitle); ?>">
 <meta property="og:description" content="<?php echo htmlspecialchars($metaDescription); ?>">
 <meta property="og:url" content="<?php echo htmlspecialchars($canonicalUrl); ?>">
@@ -75,33 +86,38 @@ $ogImage      = rtrim(SITE_URL, '/') . '/' . (isset($pageImage) ? $pageImage : '
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="<?php echo PAGE_BASE; ?>">
-      <img src="<?php echo ASSETS_URL; ?>assets/img/logo.png" alt="<?php echo htmlspecialchars(t('nav.logo_alt')); ?>" class="brand-mark">
+      <?php if ($L['brand']['logo'] !== ''): ?>
+      <img src="<?php echo enw_img_src($L['brand']['logo']); ?>" alt="<?php echo enw_attr($L['brand']['logo_alt']); ?>" class="brand-mark">
+      <?php endif; ?>
       <span class="brand-text">
-        <span class="brand-name">ENWIRES</span>
-        <span class="brand-tagline"><?php echo t('site.tagline'); ?></span>
+        <span class="brand-name"><?php echo htmlspecialchars($brandName); ?></span>
+        <?php if ($L['brand']['tagline'] !== ''): ?>
+        <span class="brand-tagline"><?php echo enw_rich($L['brand']['tagline']); ?></span>
+        <?php endif; ?>
       </span>
     </a>
 
-    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="<?php echo htmlspecialchars(t('nav.toggle_aria')); ?>">
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="<?php echo enw_attr($L['toggle_aria'] !== '' ? $L['toggle_aria'] : 'Menu'); ?>">
       <span></span><span></span><span></span>
     </button>
 
     <nav class="site-nav" id="siteNav">
-      <?php foreach ($NAV_ITEMS as $file => $label): ?>
-        <?php $navHref = ($file === 'index.php') ? PAGE_BASE : PAGE_BASE . $file; ?>
-        <a href="<?php echo $navHref; ?>" class="<?php echo $current === $file ? 'is-active' : ''; ?>"><?php echo $label; ?></a>
+      <?php foreach ($L['nav'] as $item): ?>
+        <?php $isActive = ($item['kind'] === 'page' && $item['page'] === $pageKey); ?>
+        <a href="<?php echo enw_attr(enw_nav_href($item)); ?>"<?php echo $isActive ? ' class="is-active"' : ''; ?><?php echo enw_nav_target($item); ?>><?php echo enw_rich(enw_nav_label($item)); ?></a>
       <?php endforeach; ?>
 
+      <?php if ($L['show_lang_switch']): ?>
       <span class="lang-switch">
         <?php foreach ($GLOBALS['LANGUAGES'] as $code => $meta): ?>
           <?php if ($code === CURRENT_LANG): ?>
             <span class="lang-switch-current" aria-current="true"><?php echo $meta['label']; ?></span>
           <?php else: ?>
-            <?php $switchTo = ($current === 'index.php') ? '' : $current; ?>
-            <a href="/set-lang.php?lang=<?php echo urlencode($code); ?>&amp;to=<?php echo urlencode($switchTo); ?>" hreflang="<?php echo $meta['html_lang']; ?>" lang="<?php echo $meta['html_lang']; ?>"><?php echo $meta['label']; ?></a>
+            <a href="/set-lang.php?lang=<?php echo urlencode($code); ?>&amp;to=<?php echo urlencode($pageSlug); ?>" hreflang="<?php echo $meta['html_lang']; ?>" lang="<?php echo $meta['html_lang']; ?>"><?php echo $meta['label']; ?></a>
           <?php endif; ?>
         <?php endforeach; ?>
       </span>
+      <?php endif; ?>
     </nav>
   </div>
 </header>

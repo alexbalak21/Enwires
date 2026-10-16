@@ -1,11 +1,10 @@
 <?php
 // Sends contact-form submissions to the Enwires inbox.
 //
-// The recipient is hardcoded for now. Later, replace CONTACT_RECIPIENT's
-// value with a lookup from the database (e.g. a settings table) — nothing
-// else needs to change.
+// The recipient is edited in the admin (Header & footer -> "Contact form"),
+// stored in content/site.json, and defaults to contact@enwires.com.
 
-define('CONTACT_RECIPIENT', 'contact@enwires.com');
+define('CONTACT_RECIPIENT', enw_layout_shared()['contact_recipient']);
 
 // Sender address MUST be on your own domain (enwires.com). Hosts and mail
 // providers reject or spam-folder mail sent "From" an arbitrary visitor

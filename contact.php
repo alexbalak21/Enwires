@@ -3,6 +3,11 @@ if (!isset($lang)) { $lang = 'en'; }
 require_once __DIR__ . '/includes/config.php';
 require_once __DIR__ . '/includes/contact-mailer.php';
 
+// Email / location shown on this page come from the admin (Header & footer settings).
+$siteLayout = enw_layout();
+$contactEmail = $siteLayout['footer']['email'] !== '' ? $siteLayout['footer']['email'] : $siteLayout['contact_recipient'];
+$contactLocation = $siteLayout['footer']['location'];
+
 $pageTitle = t('contact.meta.title');
 $pageDescription = t('contact.meta.description');
 $pageKeywords = t('contact.meta.keywords');
@@ -14,10 +19,10 @@ $values = ['name' => '', 'email' => '', 'phone' => '', 'subject' => '', 'message
 // Shown if the mail server refuses the message (kept here so it doesn't
 // depend on the CMS content files).
 $sendErrors = [
-    'en' => 'Sorry, your message could not be sent. Please try again or email us directly at ' . SITE_EMAIL . '.',
-    'fr' => "Désolé, votre message n'a pas pu être envoyé. Veuillez réessayer ou nous écrire directement à " . SITE_EMAIL . '.',
-    'zh' => '抱歉，您的留言发送失败。请稍后重试，或直接发送邮件至 ' . SITE_EMAIL . '。',
-    'ja' => '申し訳ございません。メッセージを送信できませんでした。もう一度お試しいただくか、' . SITE_EMAIL . ' まで直接ご連絡ください。',
+    'en' => 'Sorry, your message could not be sent. Please try again or email us directly at ' . $contactEmail . '.',
+    'fr' => "Désolé, votre message n'a pas pu être envoyé. Veuillez réessayer ou nous écrire directement à " . $contactEmail . '.',
+    'zh' => '抱歉，您的留言发送失败。请稍后重试，或直接发送邮件至 ' . $contactEmail . '。',
+    'ja' => '申し訳ございません。メッセージを送信できませんでした。もう一度お試しいただくか、' . $contactEmail . ' まで直接ご連絡ください。',
 ];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -73,7 +78,7 @@ require_once __DIR__ . '/includes/header.php';
         </div>
       <?php endif; ?>
 
-      <form action="<?php echo PAGE_BASE; ?>contact.php" method="post" novalidate>
+      <form action="<?php echo PAGE_BASE; ?>contact" method="post" novalidate>
         <div style="position:absolute; left:-9999px;" aria-hidden="true">
           <label for="website">Leave this field empty</label>
           <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
@@ -107,10 +112,12 @@ require_once __DIR__ . '/includes/header.php';
 
     <div class="contact-info">
       <dl>
+        <?php if ($contactLocation !== ''): ?>
         <dt><?php echo t('contact.info.location_label'); ?></dt>
-        <dd><?php echo SITE_LOCATION; ?></dd>
+        <dd><?php echo htmlspecialchars($contactLocation); ?></dd>
+        <?php endif; ?>
         <dt><?php echo t('contact.info.email_label'); ?></dt>
-        <dd><a href="mailto:<?php echo SITE_EMAIL; ?>"><?php echo SITE_EMAIL; ?></a></dd>
+        <dd><a href="mailto:<?php echo enw_attr($contactEmail); ?>"><?php echo htmlspecialchars($contactEmail); ?></a></dd>
       </dl>
     </div>
   </div>

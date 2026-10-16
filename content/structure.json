@@ -1,0 +1,191 @@
+{
+    "home": [
+        {
+            "id": "home_hero",
+            "type": "hero",
+            "shared": {
+                "cta_primary_link": "product.php",
+                "cta_secondary_link": "contact.php"
+            }
+        },
+        {
+            "id": "home_divider",
+            "type": "divider",
+            "shared": []
+        },
+        {
+            "id": "home_who",
+            "type": "text-stat",
+            "shared": {
+                "layout": "text-left",
+                "bg": "bg"
+            }
+        },
+        {
+            "id": "home_offer",
+            "type": "card-list",
+            "shared": {
+                "bg": "charcoal",
+                "items": [
+                    {
+                        "id": "i1"
+                    },
+                    {
+                        "id": "i2"
+                    },
+                    {
+                        "id": "i3"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "home_pilot",
+            "type": "image-strip",
+            "shared": {
+                "bg": "bg",
+                "tight_bottom": false,
+                "images": [
+                    {
+                        "id": "i1",
+                        "src": "pilot-reactor-technician.jpg"
+                    },
+                    {
+                        "id": "i2",
+                        "src": "pilot-reactor-technician-zoom-on-hands.jpg"
+                    },
+                    {
+                        "id": "i3",
+                        "src": "putting-graphite-powder-macro.jpg"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "home_filmstrip",
+            "type": "image-strip",
+            "shared": {
+                "bg": "charcoal",
+                "tight_bottom": true,
+                "images": [
+                    {
+                        "id": "i1",
+                        "src": "graphite-powder-macro.jpg"
+                    },
+                    {
+                        "id": "i2",
+                        "src": "powder-comparison-macro.jpg"
+                    },
+                    {
+                        "id": "i3",
+                        "src": "graphite-particle.jpg"
+                    },
+                    {
+                        "id": "i4",
+                        "src": "micorscorpe-zoom.jpg"
+                    },
+                    {
+                        "id": "i5",
+                        "src": "microscope-zoom-2.jpg"
+                    },
+                    {
+                        "id": "i6",
+                        "src": "powder-samples-wood-containers.jpg"
+                    }
+                ]
+            }
+        }
+    ],
+    "product": [
+        {
+            "id": "product_intro",
+            "type": "page-intro",
+            "shared": []
+        },
+        {
+            "id": "product_divider",
+            "type": "divider",
+            "shared": []
+        },
+        {
+            "id": "product_what",
+            "type": "text-stat",
+            "shared": {
+                "layout": "stat-left",
+                "bg": "paper"
+            }
+        },
+        {
+            "id": "product_compare",
+            "type": "figure",
+            "shared": {
+                "bg": "bg",
+                "image": {
+                    "src": "bottles.jpg"
+                }
+            }
+        },
+        {
+            "id": "product_how",
+            "type": "steps",
+            "shared": {
+                "bg": "charcoal",
+                "images": [
+                    {
+                        "id": "i1",
+                        "src": "graphite-particle.jpg"
+                    },
+                    {
+                        "id": "i2",
+                        "src": "electrode-coating-compare.jpg"
+                    }
+                ],
+                "steps": [
+                    {
+                        "id": "i1"
+                    },
+                    {
+                        "id": "i2"
+                    },
+                    {
+                        "id": "i3"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "product_cells",
+            "type": "image-strip",
+            "shared": {
+                "bg": "bg",
+                "tight_bottom": false,
+                "images": [
+                    {
+                        "id": "i1",
+                        "src": "coincell-components.jpg"
+                    },
+                    {
+                        "id": "i2",
+                        "src": "coincell-electrode-disc.jpg"
+                    },
+                    {
+                        "id": "i3",
+                        "src": "coincell-crimping.jpg"
+                    },
+                    {
+                        "id": "i4",
+                        "src": "coincell-pressed-pellets.jpg"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "product_cta",
+            "type": "cta",
+            "shared": {
+                "button_link": "contact.php",
+                "bg": "charcoal"
+            }
+        }
+    ]
+}

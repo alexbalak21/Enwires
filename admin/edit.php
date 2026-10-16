@@ -18,6 +18,14 @@ if (!isset($schema[$page]) || !cs_valid_lang($lang)) {
 }
 $pageDef = $schema[$page];
 
+// Home and Product are edited in the block builder now (their old fixed
+// forms would change keys the public pages no longer read).
+require_once dirname(__DIR__) . '/includes/blocks-core.php';
+if (isset(enw_block_pages()[$page]) && enw_structure_exists()) {
+    header('Location: builder.php?page=' . urlencode($page) . '&lang=' . urlencode($lang));
+    exit;
+}
+
 /** Find a field's definition by its path, searching every section. */
 function find_field_by_path($pageDef, $path) {
     foreach ($pageDef['sections'] as $section) {

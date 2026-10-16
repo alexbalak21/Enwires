@@ -2,8 +2,8 @@
 // Site-wide configuration for Enwires website
 
 define('SITE_NAME', 'ENWIRES');
-define('SITE_EMAIL', 'contact@enwires.com');
-define('SITE_LOCATION', 'Grenoble, France'); // kept in Latin script in every language (postal address)
+define('SITE_EMAIL', 'contact@enwires.com');           // default only — the live value is edited in /admin/layout.php
+define('SITE_LOCATION', 'Grenoble, France'); // default only — the live value is edited in /admin/layout.php
 define('SITE_YEAR', date('Y'));
 
 // Used to build canonical URLs and Open Graph tags. Update this once the
@@ -46,9 +46,5 @@ $GLOBALS['LANGUAGES'] = [
 define('PAGE_BASE', '/' . $GLOBALS['LANGUAGES'][CURRENT_LANG]['prefix']);
 
 require_once __DIR__ . '/i18n.php'; // defines t()
-
-$NAV_ITEMS = [
-    'index.php'   => t('nav.home'),
-    'product.php' => t('nav.product'),
-    'contact.php' => t('nav.contact'),
-];
+require_once __DIR__ . '/blocks.php'; // defines enw_render_blocks() etc. (needs PAGE_BASE / ASSETS_URL above)
+require_once __DIR__ . '/layout.php'; // header / footer settings (edited in /admin/layout.php)

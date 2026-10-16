@@ -1,0 +1,28 @@
+# Clean URLs for the Enwires site.
+#   /  /product  /contact  and the same under /fr /zh /ja  ->  router.php
+#   unknown URLs -> router.php shows the 404 page (with a real 404 status)
+# Real files and folders (assets, admin, ...) are served as usual.
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Never serve these folders over HTTP (PHP still reads them internally).
+RewriteRule ^(includes|content|data)(/|$) - [F,L]
+
+# 1. Old .php addresses -> clean URLs (permanent redirect, keeps search rankings)
+RewriteRule ^index\.php$ / [R=301,L]
+RewriteRule ^(product|contact)\.php$ /$1 [R=301,L]
+RewriteRule ^(fr|zh|ja)/index\.php$ /$1/ [R=301,L]
+RewriteRule ^(fr|zh|ja)/(product|contact)\.php$ /$1/$2 [R=301,L]
+
+# 2. Language prefixes always go to the router (the old fr/, zh/, ja/ folders are no longer needed)
+RewriteRule ^(fr|zh|ja)(/.*)?$ router.php [L,QSA]
+
+# 3. The home page
+RewriteRule ^$ router.php [L,QSA]
+
+# 4. Everything that is not a real file or folder -> router (page or 404)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ router.php [L,QSA]
+</IfModule>

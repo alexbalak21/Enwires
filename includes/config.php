@@ -2,7 +2,7 @@
 // Site-wide configuration for Enwires website
 
 define('SITE_NAME', 'ENWIRES');
-define('SITE_EMAIL', 'alex@alwaysdata.net');           // default only — the live value is edited in /admin/layout.php
+define('SITE_EMAIL', 'contact@enwires.com');           // default only — the live value is edited in /admin/layout.php
 define('SITE_LOCATION', 'Grenoble, France'); // default only — the live value is edited in /admin/layout.php
 define('SITE_YEAR', date('Y'));
 

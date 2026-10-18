@@ -8,9 +8,16 @@ if (admin_is_logged_in()) {
     exit;
 }
 
-// Site URL for the reset link — update this once you have a real domain.
-// Must match the public URL of the admin folder exactly.
-define('ADMIN_URL', 'http://localhost:8000/admin-password-reset');
+// Where the reset link points. Built from SITE_URL (includes/config.php) + /admin —
+// NOT from the request's Host header, which an attacker could fake to hijack the link.
+// For local testing set 'admin_url' in includes/mail-config.php, e.g. 'http://localhost:8000/admin'.
+function admin_reset_base_url() {
+    $cfg = enw_mail_config();
+    if (!empty($cfg['admin_url'])) {
+        return rtrim($cfg['admin_url'], '/');
+    }
+    return rtrim(SITE_URL, '/') . '/admin';
+}
 
 $submitted = false;
 $messages = [];
@@ -26,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user = users_find_by_email($email);
         if ($user) {
             $rawToken = password_reset_create((int) $user['id']);
-            $resetLink = ADMIN_URL . '/reset-password.php?token=' . urlencode($rawToken);
+            $resetLink = admin_reset_base_url() . '/reset-password.php?token=' . urlencode($rawToken);
             send_password_reset_email($user['email'], $user['username'], $resetLink);
         }
         $submitted = true;

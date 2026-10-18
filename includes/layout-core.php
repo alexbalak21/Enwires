@@ -41,7 +41,28 @@ function enw_nav_page_options() {
     return $out;
 }
 
+/** A constant from config.php (loading it if needed), or a fallback. */
+function enw_site_const($name, $default) {
+    if (!defined($name)) {
+        $file = __DIR__ . '/config.php';
+        if (is_file($file)) {
+            global $lang;
+            if (!isset($lang)) {
+                $lang = 'en';
+            }
+            require_once $file;
+        }
+    }
+    return defined($name) ? constant($name) : $default;
+}
+
 function enw_layout_default_shared() {
+    // The built-in defaults are the SITE_EMAIL / SITE_LOCATION set in includes/config.php.
+    $email = (string) enw_site_const('SITE_EMAIL', 'contact@enwires.com');
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $email = 'contact@enwires.com';
+    }
+    $location = (string) enw_site_const('SITE_LOCATION', 'Grenoble, France');
     return [
         'brand_name'        => 'ENWIRES',
         'logo'              => 'logo.png',
@@ -53,9 +74,9 @@ function enw_layout_default_shared() {
         ],
         'footer_same_nav'   => true,
         'footer_nav'        => [],
-        'footer_location'   => 'Grenoble, France',
-        'footer_email'      => 'contact@enwires.com',
-        'contact_recipient' => 'contact@enwires.com',
+        'footer_location'   => $location,
+        'footer_email'      => $email,
+        'contact_recipient' => $email,
     ];
 }
 

@@ -1,34 +1,17 @@
 <?php
-// Minimal mail sending for the admin panel (currently: password reset
-// emails only). Uses PHP's built-in mail() by default — no external
-// dependencies, no Composer, no SMTP credentials to configure.
-//
-// IMPORTANT: PHP's mail() depends on a mail transport being configured on
-// the server (sendmail/postfix locally, or your host's mail service). On
-// many hosts this works out of the box; on others (and on most local dev
-// setups) it silently does nothing. If reset emails aren't arriving in
-// production, that's the first thing to check — and the fix is almost
-// always on the hosting/server side, not in this code.
-//
-// To switch to SMTP later (recommended for reliability in production):
-// replace the body of send_email() with a PHPMailer/Symfony Mailer call.
-// Nothing else in the app needs to change — every caller only ever uses
-// send_email($to, $subject, $body).
+// Mail sending for the admin panel (password-reset emails). Uses the shared
+// mail library in includes/mailer.php, so it follows includes/mail-config.php
+// (mail() or SMTP). Test it in /admin/system-check.php -> "Mail check".
+// Every caller only uses send_email($to, $subject, $body).
 
-define('MAIL_FROM_ADDRESS', 'no-reply@enwires.com');
-define('MAIL_FROM_NAME', 'Enwires Admin');
+require_once dirname(__DIR__, 2) . '/includes/mailer.php';
 
 function send_email($to, $subject, $body) {
-    $headers = [
-        'From' => MAIL_FROM_NAME . ' <' . MAIL_FROM_ADDRESS . '>',
-        'Content-Type' => 'text/plain; charset=UTF-8',
-    ];
-    $headerString = '';
-    foreach ($headers as $k => $v) {
-        $headerString .= "$k: $v\r\n";
+    $res = enw_send_mail($to, $subject, $body, ['from_name' => 'Enwires Admin']);
+    if (!$res['ok']) {
+        error_log('Enwires admin mail to ' . $to . ' failed via ' . $res['transport'] . ': ' . $res['error']);
     }
-
-    return @mail($to, $subject, $body, $headerString);
+    return $res['ok'];
 }
 
 function send_password_reset_email($email, $username, $resetLink) {

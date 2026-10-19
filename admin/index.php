@@ -71,6 +71,21 @@ $converted = enw_structure_exists();
       <a href="system-check.php">Test file writing</a>
     </div>
   </div>
+
+  <div class="dashboard-card">
+    <h2>Email settings</h2>
+    <div class="lang-links">
+      <a href="email-settings.php">Recipient &amp; sender</a>
+    </div>
+  </div>
+
+  <div class="dashboard-card">
+    <h2>Help <span class="you-tag">lisez-moi</span></h2>
+    <div class="lang-links">
+      <a href="lisez-moi.php?lang=en">English</a>
+      <a href="lisez-moi.php?lang=fr">Français</a>
+    </div>
+  </div>
 </div>
 
 <?php require __DIR__ . '/includes/layout-footer.php'; ?>

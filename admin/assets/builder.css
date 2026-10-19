@@ -118,3 +118,9 @@ body.builder { height: 100vh; display: flex; flex-direction: column; overflow: h
 .bd-thumb-logo { max-height: 70px; width: auto; max-width: 100%; object-fit: contain; background: #444345; padding: 8px; }
 .bd-meta-body select { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 4px; font: inherit; background: #fff; }
 .bd-meta + .bd-meta { margin-top: 12px; }
+
+/* --- Colour fields and conditional fields -------------------------------- */
+.bd-card-body [hidden] { display: none !important; }
+.bd-colorrow { display: flex; gap: 10px; align-items: center; }
+.bd-colorpick { width: 48px; height: 36px; padding: 2px; border: 1px solid var(--line); border-radius: 4px; background: #fff; cursor: pointer; }
+.bd-card-body input.bd-colortext { width: 110px; font-family: ui-monospace, Menlo, Consolas, monospace; }

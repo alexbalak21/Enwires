@@ -1162,7 +1162,7 @@ require __DIR__ . '/includes/layout-header.php';
   <p style="margin-top:0;">
     Sends a <strong>real test email</strong> and shows exactly what happened: the answer of the mail server, whether this server can
     reach it, and how your domain is set up for mail (SPF / DMARC). Try settings here first; when one works, copy it into
-    <code>includes/mail-config.php</code>. Nothing typed here is stored.
+    <code>includes/mail-config.php</code>. Nothing typed here is stored. The saved recipient and sender are set in <a href="email-settings.php">Email settings</a>.
   </p>
   <form method="post" action="#mail">
     <?php echo admin_csrf_field(); ?>

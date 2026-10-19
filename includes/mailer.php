@@ -23,6 +23,9 @@ if (!defined('SITE_URL')) {
     }
 }
 
+// Settings saved in the admin (Email settings) live in content/site.json.
+require_once __DIR__ . '/layout-core.php';
+
 // --- configuration ------------------------------------------------------------
 
 function enw_mail_defaults() {
@@ -72,18 +75,23 @@ function enw_mail_site_domain() {
     return preg_replace('/^www\./', '', $host);
 }
 
+/** Sender address / name saved in the admin (Email settings). '' = not set. */
+function enw_mail_site_settings() {
+    $s = function_exists('enw_site_load') ? enw_site_load() : [];
+    $from = (isset($s['mail_from_address']) && is_string($s['mail_from_address'])) ? trim($s['mail_from_address']) : '';
+    $name = (isset($s['mail_from_name']) && is_string($s['mail_from_name'])) ? trim($s['mail_from_name']) : '';
+    return [
+        'from_address' => ($from !== '' && filter_var($from, FILTER_VALIDATE_EMAIL)) ? $from : '',
+        'from_name'    => $name,
+    ];
+}
+
 /**
- * The address mail is sent FROM. Mail servers want this to be a real mailbox
- * on your domain (or the SMTP login), not an invented one:
- *   1. the address you typed / put in the config,
- *   2. with SMTP: the SMTP username, if it is an email address,
- *   3. contact@<your site domain>.
+ * The automatic sender, used when none is saved in the admin: the address in
+ * mail-config.php, else (with SMTP) the SMTP login if it is an address, else
+ * contact@<your site domain>. Mail servers want a REAL mailbox of your domain here.
  */
-function enw_mail_pick_from(array $cfg, $override = '') {
-    $override = trim((string) $override);
-    if ($override !== '' && filter_var($override, FILTER_VALIDATE_EMAIL)) {
-        return $override;
-    }
+function enw_mail_auto_from(array $cfg) {
     $conf = trim((string) ($cfg['from_address'] ?? ''));
     if ($conf !== '' && filter_var($conf, FILTER_VALIDATE_EMAIL)) {
         return $conf;
@@ -94,6 +102,24 @@ function enw_mail_pick_from(array $cfg, $override = '') {
     }
     $d = enw_mail_site_domain();
     return 'contact@' . ($d !== '' ? $d : 'localhost');
+}
+
+/**
+ * The address mail is sent FROM. In order:
+ *   1. the address typed for this one send (the System check's test form),
+ *   2. the address saved in the admin (Email settings),
+ *   3. the automatic one (see enw_mail_auto_from).
+ */
+function enw_mail_pick_from(array $cfg, $override = '') {
+    $override = trim((string) $override);
+    if ($override !== '' && filter_var($override, FILTER_VALIDATE_EMAIL)) {
+        return $override;
+    }
+    $site = enw_mail_site_settings();
+    if ($site['from_address'] !== '') {
+        return $site['from_address'];
+    }
+    return enw_mail_auto_from($cfg);
 }
 
 // --- building the message -----------------------------------------------------
@@ -341,7 +367,14 @@ function enw_send_mail($to, $subject, $body, array $opt = []) {
     $cfg['transport'] = $transport;
 
     $envelope = array_key_exists('envelope_sender', $opt) ? !empty($opt['envelope_sender']) : !empty($cfg['envelope_sender']);
-    $fromName = array_key_exists('from_name', $opt) ? (string) $opt['from_name'] : (string) $cfg['from_name'];
+    $siteMail = enw_mail_site_settings();
+    if (array_key_exists('from_name', $opt)) {
+        $fromName = (string) $opt['from_name'];
+    } elseif ($siteMail['from_name'] !== '') {
+        $fromName = $siteMail['from_name'];
+    } else {
+        $fromName = (string) $cfg['from_name'];
+    }
     $to = trim((string) $to);
     $from = enw_mail_pick_from($cfg, $opt['from_address'] ?? '');
 

@@ -150,6 +150,22 @@
     return el('div', { class: 'field' }, [el('label', { class: 'field-label', text: label }), sel]);
   }
 
+  /** A native colour picker plus a hex box, kept in sync. value / onChange use '#rrggbb'. */
+  function colorControl(label, value, onChange) {
+    var pick = el('input', { type: 'color', class: 'bd-colorpick', 'aria-label': label });
+    var txt = el('input', { type: 'text', maxlength: '7', class: 'bd-colortext', placeholder: '#2b2b2c' });
+    pick.value = /^#[0-9a-f]{6}$/i.test(value) ? value : '#000000';
+    txt.value = value || '';
+    pick.addEventListener('input', function () { txt.value = pick.value; onChange(pick.value); });
+    txt.addEventListener('input', function () {
+      if (/^#[0-9a-f]{6}$/i.test(txt.value)) { pick.value = txt.value; onChange(txt.value.toLowerCase()); }
+    });
+    return el('div', { class: 'field' }, [
+      el('label', { class: 'field-label', text: label }),
+      el('div', { class: 'bd-colorrow' }, [pick, txt])
+    ]);
+  }
+
   function upload(file, done, btn) {
     var fd = new FormData();
     fd.append('file', file);
@@ -244,6 +260,9 @@
       case 'link':
         return selectControl(fd.label, LINKS, b.fields[name], function (v) { b.fields[name] = v; markDirty(); });
 
+      case 'color':
+        return colorControl(fd.label, b.fields[name], function (v) { b.fields[name] = v; markDirty(); });
+
       case 'checkbox':
         var cb = el('input', { type: 'checkbox' });
         cb.checked = !!b.fields[name];
@@ -255,7 +274,9 @@
         var enImg = enField(b.id, name) || {};
         var box = el('div', { class: 'field' }, [el('span', { class: 'field-label', text: fd.label })]);
         box.appendChild(imagePicker(img, markDirty));
-        box.appendChild(textControl('Alt text (describe the photo)', img.alt, isEn ? '' : (enImg.alt || ''), false, function (v) { img.alt = v; markDirty(); }));
+        if (fd.alt !== false) {   // a purely decorative image (e.g. a background) has no description
+          box.appendChild(textControl('Alt text (describe the photo)', img.alt, isEn ? '' : (enImg.alt || ''), false, function (v) { img.alt = v; markDirty(); }));
+        }
         if (fd.caption) {
           box.appendChild(textControl('Caption (shown under the photo)', img.caption, isEn ? '' : (enImg.caption || ''), false, function (v) { img.caption = v; markDirty(); }));
         }
@@ -343,6 +364,7 @@
         case 'gallery':
         case 'repeater': f[fd.name] = []; break;
         case 'checkbox': f[fd.name] = !!fd.default; break;
+        case 'color': f[fd.name] = fd.default || '#000000'; break;
         case 'select':
         case 'link': f[fd.name] = fd.default || ''; break;
         default: f[fd.name] = '';
@@ -383,8 +405,26 @@
     }
     def.fields.forEach(function (fd) {
       var c = fieldControl(b, fd, function () { sum.textContent = summaryOf(b); });
-      if (c) body.appendChild(c);
+      if (c) {
+        c.setAttribute('data-field', fd.name);
+        body.appendChild(c);
+      }
     });
+
+    // Fields with "show_if" (e.g. the hero's photo only when "My own photo" is chosen).
+    function updateVisibility() {
+      def.fields.forEach(function (fd) {
+        if (!fd.show_if) return;
+        var node = body.querySelector('[data-field="' + fd.name + '"]');
+        if (!node) return;
+        var ok = Object.keys(fd.show_if).every(function (k) {
+          return fd.show_if[k].map(String).indexOf(String(b.fields[k])) !== -1;
+        });
+        node.hidden = !ok;
+      });
+    }
+    updateVisibility();
+    body.addEventListener('change', updateVisibility);
 
     var card = el('div', { class: 'bd-card', 'data-id': b.id }, [head, body]);
     cardEls[b.id] = { card: card, body: body, sum: sum };

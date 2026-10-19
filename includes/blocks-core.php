@@ -136,6 +136,12 @@ function enw_resolve_block(array $sb, array $texts) {
                 $out[$n] = (is_string($v) && array_key_exists($v, enw_link_options())) ? $v : ($fd['default'] ?? 'index.php');
                 break;
 
+            case 'color':
+                $def = strtolower((string) ($fd['default'] ?? '#000000'));
+                $v = $shared[$n] ?? $def;
+                $out[$n] = (is_string($v) && preg_match('/^#[0-9a-fA-F]{6}$/', $v)) ? strtolower($v) : $def;
+                break;
+
             case 'checkbox':
                 $out[$n] = array_key_exists($n, $shared) ? !empty($shared[$n]) : !empty($fd['default']);
                 break;
@@ -190,7 +196,68 @@ function enw_resolve_block(array $sb, array $texts) {
  * (today: the 404 page). Returns null for pages without defaults.
  * Shape: ['structure' => [...], 'texts' => [lang => [blockId => texts]]]
  */
+/**
+ * Starting content of the Contact page: built from the texts it already has in
+ * the language files (contact.hero.*, contact.form.*, contact.info.*), so
+ * nothing has to be converted and nothing is lost. It becomes "real" (stored
+ * as blocks) the first time it is saved in the block builder.
+ */
+function enw_contact_defaults() {
+    static $cache = null;
+    if ($cache !== null) {
+        return $cache;
+    }
+    $sendError = [
+        'en' => 'Sorry, your message could not be sent. Please try again or email us directly at {email}.',
+        'fr' => "Désolé, votre message n'a pas pu être envoyé. Veuillez réessayer ou nous écrire directement à {email}.",
+        'zh' => '抱歉，您的留言发送失败。请稍后重试，或直接发送邮件至 {email}。',
+        'ja' => '申し訳ございません。メッセージを送信できませんでした。もう一度お試しいただくか、{email} まで直接ご連絡ください。',
+    ];
+    $texts = [];
+    foreach (['en', 'fr', 'zh', 'ja'] as $l) {
+        $c = enw_lang_content($l);
+        $g = function ($path) use ($c) {
+            $v = enw_dig($c, $path);
+            return is_string($v) ? $v : '';
+        };
+        $texts[$l] = [
+            'contact_intro' => [
+                'eyebrow' => $g('contact.hero.eyebrow'),
+                'heading' => $g('contact.hero.title'),
+                'text'    => $g('contact.hero.text'),
+            ],
+            'contact_form' => [
+                'name_label'         => $g('contact.form.name_label'),
+                'phone_label'        => $g('contact.form.phone_label'),
+                'email_label'        => $g('contact.form.email_label'),
+                'subject_label'      => $g('contact.form.subject_label'),
+                'message_label'      => $g('contact.form.message_label'),
+                'required_note'      => $g('contact.form.required_note'),
+                'submit'             => $g('contact.form.submit'),
+                'error_name'         => $g('contact.form.error_name'),
+                'error_email'        => $g('contact.form.error_email'),
+                'error_message'      => $g('contact.form.error_message'),
+                'error_send'         => $sendError[$l],
+                'success'            => $g('contact.form.success'),
+                'info_location_label' => $g('contact.info.location_label'),
+                'info_email_label'   => $g('contact.info.email_label'),
+            ],
+        ];
+    }
+    $cache = [
+        'structure' => [
+            ['id' => 'contact_intro', 'type' => 'page-intro', 'shared' => ['wide_title' => true, 'tight' => true]],
+            ['id' => 'contact_form', 'type' => 'contact-form', 'shared' => ['bg' => 'paper', 'show_info' => true]],
+        ],
+        'texts' => $texts,
+    ];
+    return $cache;
+}
+
 function enw_page_defaults($page) {
+    if ($page === 'contact') {
+        return enw_contact_defaults();
+    }
     if ($page !== 'notfound') {
         return null;
     }
@@ -377,6 +444,11 @@ function enw_split_draft(array $draftBlocks, $lang) {
                     $shared[$n] = (is_string($v) && array_key_exists($v, enw_link_options())) ? $v : ($fd['default'] ?? 'index.php');
                     break;
 
+                case 'color':
+                    $def = strtolower((string) ($fd['default'] ?? '#000000'));
+                    $shared[$n] = (is_string($v) && preg_match('/^#[0-9a-fA-F]{6}$/', $v)) ? strtolower($v) : $def;
+                    break;
+
                 case 'checkbox':
                     $shared[$n] = !empty($v);
                     break;
@@ -384,7 +456,10 @@ function enw_split_draft(array $draftBlocks, $lang) {
                 case 'image':
                     $img = is_array($v) ? $v : [];
                     $shared[$n] = ['src' => enw_clean_filename($img['src'] ?? '')];
-                    $ti = ['alt' => enw_clean_text($img['alt'] ?? '')];
+                    $ti = [];
+                    if (!isset($fd['alt']) || $fd['alt'] !== false) {   // a purely decorative image has no description
+                        $ti['alt'] = enw_clean_text($img['alt'] ?? '');
+                    }
                     if (!empty($fd['caption'])) {
                         $ti['caption'] = enw_clean_text($img['caption'] ?? '');
                     }

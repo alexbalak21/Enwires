@@ -280,18 +280,10 @@
     return nodes;
   }
 
-  function contactNodes() {
-    return [
-      textControl('Send contact-form messages to (all languages)', D.contact_recipient, '', false, function (v) { D.contact_recipient = v; changed(); },
-        'Every message from the Contact page is emailed to this address — double-check it before saving.')
-    ];
-  }
-
   function render() {
     area.innerHTML = '';
     area.appendChild(section('header', 'Header', headerNodes()));
     area.appendChild(section('footer', 'Footer', footerNodes()));
-    area.appendChild(section('contact', 'Contact form', contactNodes()));
   }
 
   // --- live preview --------------------------------------------------------------

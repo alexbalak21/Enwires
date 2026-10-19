@@ -16,6 +16,8 @@
     <?php if (admin_is_logged_in()): ?>
     <nav class="admin-topnav">
       <a href="users.php">Users</a>
+      <a href="email-settings.php">Email</a>
+      <a href="lisez-moi.php">Help</a>
       <a href="user-edit.php?id=<?php echo admin_current_user_id(); ?>">My account</a>
       <span class="admin-topnav-sep">|</span>
       <a href="logout.php">Log out</a>

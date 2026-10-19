@@ -7,7 +7,10 @@
 RewriteEngine On
 
 # Never serve these folders over HTTP (PHP still reads them internally).
-RewriteRule ^(includes|content|data)(/|$) - [F,L]
+RewriteRule ^(includes|content|text|data)(/|$) - [F,L]
+
+# Documentation (README.md ...) is read by the admin page, not by visitors.
+RewriteRule \.md$ - [F,L]
 
 # 1. Old .php addresses -> clean URLs (permanent redirect, keeps search rankings)
 RewriteRule ^index\.php$ / [R=301,L]

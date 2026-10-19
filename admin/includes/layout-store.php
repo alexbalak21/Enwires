@@ -81,7 +81,8 @@ function ls_save($lang, array $draft, $baseRev) {
     }
 
     // 2) The shared settings.
-    if (!ls_site_save($shared)) {
+    // Merge: site.json also holds settings this editor does not touch (contact recipient, mail sender).
+    if (!ls_site_save(array_merge(enw_site_load(), $shared))) {
         return ['ok' => false, 'error' => 'Texts were saved, but content/site.json could not be written — check that the content folder and file are writable by the web server, then save again.'];
     }
 

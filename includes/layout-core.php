@@ -6,7 +6,8 @@
 //
 //   content/site.json        what every language shares
 //       brand name, logo, nav links (order, targets), footer options,
-//       footer e-mail / location, contact-form recipient
+//       footer e-mail / location, contact-form recipient and mail sender
+//       (the last two are edited in /admin/email-settings.php)
 //
 //   content/{lang}.json      the translated texts, under "layout"
 //       tagline, logo_alt, toggle_aria, copyright,
@@ -77,6 +78,8 @@ function enw_layout_default_shared() {
         'footer_location'   => $location,
         'footer_email'      => $email,
         'contact_recipient' => $email,
+        'mail_from_address' => '',   // '' = automatic (see enw_mail_pick_from in mailer.php)
+        'mail_from_name'    => '',   // '' = the name in mail-config.php
     ];
 }
 
@@ -154,6 +157,8 @@ function enw_layout_shared() {
     $brand = enw_layout_str($s['brand_name'] ?? $d['brand_name'], 60);
     $email = enw_layout_str($s['footer_email'] ?? $d['footer_email'], 200);
     $recipient = enw_layout_str($s['contact_recipient'] ?? $d['contact_recipient'], 200);
+    $mailFrom = enw_layout_str($s['mail_from_address'] ?? '', 200);
+    $mailName = enw_layout_str($s['mail_from_name'] ?? '', 80);
 
     return [
         'brand_name'       => $brand !== '' ? $brand : $d['brand_name'],
@@ -165,6 +170,8 @@ function enw_layout_shared() {
         'footer_location'  => enw_layout_str($s['footer_location'] ?? $d['footer_location'], 200),
         'footer_email'     => ($email === '' || filter_var($email, FILTER_VALIDATE_EMAIL)) ? $email : $d['footer_email'],
         'contact_recipient' => filter_var($recipient, FILTER_VALIDATE_EMAIL) ? $recipient : $d['contact_recipient'],
+        'mail_from_address' => ($mailFrom !== '' && filter_var($mailFrom, FILTER_VALIDATE_EMAIL)) ? $mailFrom : '',
+        'mail_from_name'    => $mailName,
     ];
 }
 
@@ -289,7 +296,6 @@ function enw_layout_flat(array $shared, array $bag, $isEn) {
         'footer_same_nav'   => $shared['footer_same_nav'],
         'footer_location'   => $shared['footer_location'],
         'footer_email'      => $shared['footer_email'],
-        'contact_recipient' => $shared['contact_recipient'],
         'tagline'           => $bag['tagline'] ?? '',
         'logo_alt'          => $bag['logo_alt'] ?? '',
         'toggle_aria'       => $bag['toggle_aria'] ?? '',
@@ -312,13 +318,9 @@ function enw_layout_split_draft(array $d) {
 
     $brand = enw_layout_str($d['brand_name'] ?? '', 60);
     $email = enw_layout_str($d['footer_email'] ?? '', 200);
-    $recipient = enw_layout_str($d['contact_recipient'] ?? '', 200);
 
     if ($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errors[] = 'The footer e-mail address is not valid.';
-    }
-    if (!filter_var($recipient, FILTER_VALIDATE_EMAIL)) {
-        $errors[] = 'The contact-form recipient must be a valid e-mail address (otherwise messages would be lost).';
     }
     foreach ($nav as $it) {
         if ($it['kind'] === 'url' && $it['url'] === '') {
@@ -336,7 +338,6 @@ function enw_layout_split_draft(array $d) {
         'footer_nav'        => $fnav,
         'footer_location'   => enw_layout_str($d['footer_location'] ?? '', 200),
         'footer_email'      => $email,
-        'contact_recipient' => $recipient,
     ];
 
     $asLabels = function (array $labels) {
@@ -359,10 +360,9 @@ function enw_layout_split_draft(array $d) {
 /** Draft => the layout exactly as it would look if saved (for the live preview). */
 function enw_layout_draft_to_layout(array $draft, $lang) {
     [$shared, $texts] = enw_layout_split_draft($draft);
-    // Preview must never fail on a half-typed value: fall back to saved ones.
-    if ($shared['contact_recipient'] === '' || !filter_var($shared['contact_recipient'], FILTER_VALIDATE_EMAIL)) {
-        $shared['contact_recipient'] = enw_layout_shared()['contact_recipient'];
-    }
+    // Settings the header/footer editor does not edit (contact recipient, mail sender)
+    // keep their saved values.
+    $shared = array_merge(enw_layout_shared(), $shared);
     return enw_layout_build(
         $lang,
         $shared,

@@ -19,7 +19,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (!is_string($returnTo) || $returnTo === '' || $returnTo[0] !== '/') {
                 $returnTo = 'index.php';
             } else {
-                $returnTo = basename($returnTo) ?: 'index.php';
+                $returnPath = parse_url($returnTo, PHP_URL_PATH);
+                $adminPath = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '/admin/login.php')), '/');
+                if (!is_string($returnPath) || $returnPath === $adminPath || $returnPath === $adminPath . '/') {
+                    $returnTo = 'index.php';
+                } elseif (strpos($returnPath, $adminPath . '/') === 0) {
+                    $returnTo = basename($returnPath);
+                } else {
+                    $returnTo = 'index.php';
+                }
             }
             header('Location: ' . $returnTo);
             exit;

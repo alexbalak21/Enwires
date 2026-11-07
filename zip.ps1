@@ -15,5 +15,6 @@
 "product.php" `
 "README.md" `
 "router.php" `
+"set-lang.php" `
 
 Write-Host "Archive created: Enwires.zip"
